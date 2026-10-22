@@ -55,7 +55,7 @@ Where to find sources: see the `check-page-claims` skill in this plugin.
 
 ## 4. Voice
 
-- **One person, no organisation.** Hebrish is Daniel Rosehill's one-person, not-for-profit project.
+- **One person, no organisation.** Hebrish is Daniel Rosehill's one-person project.
   Never "we", "our", "us" or a team ("Mission", not "Our mission"; "tell Daniel", not "tell us"). The
   legal "we" in the terms of use is the exception. Dated changelog entries are history: leave their
   wording.
@@ -64,8 +64,8 @@ Where to find sources: see the `check-page-claims` skill in this plugin.
   terms, the FAQ on accents, `llms.txt`). Not in the hero, the experimental strip, home cards, every
   changelog entry or chart footers. Where more voices come up, invite recordings ("Want it to learn your
   voice? Contribute recordings") rather than warn.
-- Plain, specific, measured. No hype words, no emojis. "Not-for-profit project", never "charity" or
-  "non-profit organisation". Full voice guide and templates: <https://hebrish.app/brand>.
+- Plain, specific, measured. No hype words, no emojis. "One-person project"; never "non-profit",
+  "not-for-profit" or "charity", and no statements of motive (Daniel, 2026-10-22). Full voice guide and templates: <https://hebrish.app/brand>.
 
 ## 5. Structure
 

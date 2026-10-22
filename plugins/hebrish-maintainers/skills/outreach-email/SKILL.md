@@ -56,7 +56,7 @@ drop SVG). Colours are the light set of the Hebrish brand (https://hebrish.app/b
 1. **Facts.** Take every claim from the live site, not from memory or an old draft:
    https://hebrish.app/llms.txt (key facts and current numbers), `/benchmarks`, `/changelog`,
    `/download`. Rules:
-   - Hebrish is Daniel Rosehill's one-person, not-for-profit project. Never "we" or "the team".
+   - Hebrish is Daniel Rosehill's one-person project. Never "we" or "the team".
    - Numbers exactly as published, never rounded or invented. Targets on `/roadmap` are goals,
      not results. Say which benchmark a number is from if you quote one.
    - Model names: Sabich (recommended in the apps), Jachnun; checkpoints PoC-1 to PoC-5.

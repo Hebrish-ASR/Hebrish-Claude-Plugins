@@ -44,7 +44,7 @@ If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
 Plain, no hype, no emojis, no superlatives. Facts from https://hebrish.app/llms.txt only, never
 from memory; numbers exactly as published.
 
-- **Who made it:** Daniel Rosehill built it as a one-person, not-for-profit project. (A
+- **Who made it:** Daniel Rosehill built it as a one-person project. (A
   representative writes in their own voice: "I'm helping Daniel Rosehill share Hebrish...")
 - **The problem, in the group's words:** English sentences with Hebrew words in them. Give 2 or
   3 example terms that suit the group and exist in the lexicon

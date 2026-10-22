@@ -20,7 +20,7 @@ description: Keep every Hebrish model, dataset and Space in the right Hugging Fa
 If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
 `docs/maintainer-agent-notes.md`, section *hf-collections*, for the maintainer setup.
 
-Hebrish is Daniel Rosehill's one-person, not-for-profit project (<https://hebrish.app>). Written
+Hebrish is Daniel Rosehill's one-person project (<https://hebrish.app>). Written
 2026-10-22; the script was run (dry run only) against the live org that day.
 
 ## The collections

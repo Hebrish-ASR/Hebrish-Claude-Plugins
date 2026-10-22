@@ -20,7 +20,7 @@ description: Review pending Hugging Face access requests on the gated Hebrish mo
 If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
 `docs/maintainer-agent-notes.md`, section *access-requests*, for the maintainer setup.
 
-Hebrish is Daniel Rosehill's one-person, not-for-profit project (<https://hebrish.app>). Written
+Hebrish is Daniel Rosehill's one-person project (<https://hebrish.app>). Written
 2026-10-22; the dry run was tested against the live org that day.
 
 ## Requesters' data stays out of files

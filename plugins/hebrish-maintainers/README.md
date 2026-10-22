@@ -1,7 +1,7 @@
 # hebrish-maintainers
 
 Every Claude Code skill for working on [Hebrish](https://hebrish.app), Daniel Rosehill's
-one-person, not-for-profit English-Hebrew dictation project, in one plugin.
+one-person English-Hebrew dictation project, in one plugin.
 
 ```
 /plugin marketplace add Hebrish-ASR/Hebrish-Claude-Plugins
@@ -32,12 +32,12 @@ accounts, it gives the route for everyone else (usually a pull request or an iss
 | `queue-sprint` | Queue a batch of requests into the per-platform sprints in `planning/backlog.md` | Anyone (issue or pull request without push access) |
 | `project-context` | Read and update the project context memory at hebrish.app/project-context/ (project, models and data, product principles, work outside the apps, decisions, open questions) | Reading: anyone; updating: maintainer (others open an issue) |
 
-Hebrish is Daniel Rosehill's one-person, not-for-profit project (<https://hebrish.app>).
+Hebrish is Daniel Rosehill's one-person project (<https://hebrish.app>).
 
 ## Training data
 Claude Code skills for contributing training data to [Hebrish](https://hebrish.app): new Hebrew
 vocabulary and read-aloud English-Hebrew code-switching sentences, in the format the project's
-sentence bank uses. Hebrish is Daniel Rosehill's one-person, not-for-profit project; he records the
+sentence bank uses. Hebrish is Daniel Rosehill's one-person project; he records the
 sentences, so a contribution becomes training data when he reads it aloud.
 
 | Skill | What it does | Access |
@@ -76,7 +76,7 @@ private; anyone can still draft changes and hand them in as an issue on
 
 ## Outreach (maintainer and authorised representatives only)
 Skills for telling other people about [Hebrish](https://hebrish.app), Daniel Rosehill's
-one-person, not-for-profit English-Hebrew dictation project.
+one-person English-Hebrew dictation project.
 
 
 **For the maintainer and people Daniel has authorised to represent the project only.** Each

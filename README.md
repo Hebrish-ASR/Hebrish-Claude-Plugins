@@ -2,7 +2,7 @@
 
 The Claude Code marketplace for [Hebrish](https://hebrish.app): on-device English dictation
 that writes Hebrew words correctly, in romanized form (makolet, arnona, teudat zehut). Hebrish
-is a one-person, not-for-profit project by Daniel Rosehill. These plugins are for anyone who
+is a one-person project by Daniel Rosehill. These plugins are for anyone who
 wants to use it or help with it.
 
 ## Install

@@ -33,7 +33,7 @@ Hebrish repository and Claude Code, and nothing else. Created 2026-10-22.
    as `${CLAUDE_PLUGIN_ROOT}/skills/<name>/scripts/...`. Also say what to do when the variable
    is unset: "clone https://github.com/Hebrish-ASR/Hebrish-Claude-Plugins and use the path inside it".
 6. **Project facts** (romanization, model names, "one person, no team") follow the Hebrish
-   website's rules: Hebrish is Daniel Rosehill's one-person, not-for-profit project, so write
+   website's rules: Hebrish is Daniel Rosehill's one-person project, so write
    "Daniel", never "we"/"our team". Model names: Jachnun, Sabich, Shakshuka (ASR), Meorav (TTS);
    checkpoints PoC-1… Hebrew words in their romanized form (makolet, arnona), never Hebrew
    script as model output.

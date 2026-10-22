@@ -21,7 +21,7 @@ description: Keep Hebrish's written record current after a model release or a ne
   named in step 4). If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
   `docs/maintainer-agent-notes.md`, section *documentation*, for the maintainer setup.
 
-Hebrish is Daniel Rosehill's one-person, not-for-profit project: write "Daniel", never "we"/"our".
+Hebrish is Daniel Rosehill's one-person project: write "Daniel", never "we"/"our".
 
 Script: `${CLAUDE_PLUGIN_ROOT}/skills/documentation/scripts/results_report.py`. If `CLAUDE_PLUGIN_ROOT`
 is unset, clone https://github.com/Hebrish-ASR/Hebrish-Claude-Plugins and use
