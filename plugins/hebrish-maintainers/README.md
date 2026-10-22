@@ -29,6 +29,7 @@ accounts, it gives the route for everyone else (usually a pull request or an iss
 | `android-release` | Take a feedback round to a published APK: implement, document, tag, CDN, F-Droid, changelog | Maintainer for the release steps; contributors stop at a pull request |
 | `log-decision` | Add an entry to the public decision log, `planning/decisions.md` | Anyone (via pull request without push access) |
 | `queue-sprint` | Queue a batch of requests into the per-platform sprints in `planning/backlog.md` | Anyone (issue or pull request without push access) |
+| `project-context` | Read and update the project context memory at hebrish.app/project-context/ (project, models and data, product principles, work outside the apps, decisions, open questions) | Reading: anyone; updating: maintainer (others open an issue) |
 
 Hebrish is Daniel Rosehill's one-person, not-for-profit project (<https://hebrish.app>).
 
