@@ -88,7 +88,9 @@ $R --config $S/references/collections.example.json --site https://hebrish.app/da
    later title change creates a second collection.
 4. **Verify the thing, not the exit code:** run the dry run again (`add` and `note` empty) and open
    each changed collection page, or read `HfApi().get_collection(slug).items`.
-5. A new **model** also belongs on hebrish.app's `/models` (`data/models.json` in the website repo,
+5. For a whole-org health check (collections, cards, gating, pending requests, with a fix per finding),
+   use the `hf-audit` skill; it runs this script's dry run as its collections check.
+6. A new **model** also belongs on hebrish.app's `/models` (`data/models.json` in the website repo,
    which is private): without access, open an issue `Website: add <repo> to /models`.
 
 Without maintainer access, stop after step 1 and file the issue described under Access.

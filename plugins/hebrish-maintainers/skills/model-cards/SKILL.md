@@ -34,7 +34,7 @@ Hebrish is Daniel Rosehill's one-person, not-for-profit project (<https://hebris
 | Current version | The card's title and "latest version" lines name the version in `current` of hebrish.app's `data/models.json`. |
 | Numbers | Every result is copied from a published source, never typed from memory, never invented: `https://hebrish.app/data/results.json` (`leaderboard`, `compare`, `compare_r7`), the result files in <https://github.com/Hebrish-ASR/English-Hebrew-Codeswitching-ASR-Benchmark> (`results/*.json`), or the [public leaderboard](https://huggingface.co/spaces/danielrosehill/English-Hebrew-Codeswitching-ASR-Leaderboard). Do not round a figure differently from its source. PoC-4 and PoC-5 are unbenchmarked; Jachnun v1.0 and Sabich v1.0 have round-7 results. Targets are goals, never shown as results. Do not rank Sabich-Qwen3 against Sabich: their results are on different test-set revisions. |
 | Licence | `license:` in the front matter matches the repo's licence on hebrish.app/models and the [terms](https://hebrish.app/terms): PoC-1 … PoC-5 and v1.0 CC-BY-4.0; Parakeet fine-tunes from v1.1 CC-BY-NC-4.0; other bases keep their base licence (Shakshuka: NVIDIA Open Model License, card `other`; asr4all variants: the base's weights licence, `other`; Qwen3 variants: Apache-2.0). Plus the Hebrish terms of use. |
-| Access | Every gated card has the "Access and terms of use" paragraph right after the Website line, an `extra_gated_prompt`, and `extra_gated_fields` (Name, Organisation, Intended use, the terms checkbox). The contact address on cards is the one on the current terms page (the audit compares them). |
+| Access | Every gated card has the "Access and terms of use" paragraph right after the Website line, an `extra_gated_prompt`, and `extra_gated_fields` (Name, Organisation, Intended use, the terms checkbox). The access-request address on cards is **access@hebrish.app** (standardised 2026-10-22; replace any older address such as access-requests@hebrish.app). The audit flags any other hebrish.app access address, and reports the terms page's address as `terms_contact` so an out-of-date terms page shows up too. |
 | Single speaker | The models are trained on one speaker's voice. Say it **once**, plainly, under **Limitations**; not in the title, the opening lines or every section. Where more voices come up, invite people to contribute recordings. |
 | Hebrew | Hebrew words in their romanized form (makolet, arnona; canonical spellings: `term` column of `data/terms.csv` in <https://github.com/Hebrish-ASR/Hebrew-Latin-Token-Classifier>). Hebrew script only as a gloss next to the romanized word, never as model output. |
 | Voice | One person, no organisation: "Daniel", not "we/our/us" (quoted example sentences are fine). |
@@ -63,8 +63,10 @@ $A --repos Hebrish/Jachnun --links --save-dir /tmp/cards      # check links, kee
 ```
 
 Output: per card `findings` (rule, detail, line numbers, examples) and `numbers` (every line with a
-percentage, for step 2). It reads hebrish.app's `data/models.json` (current version, licence, repos per
-model) and `/terms` (contact address). A finding means "look here", not "wrong": a bare `v2` is often
+percentage, for step 2). It reads hebrish.app's `data/models.json` (line name, current version, licence,
+repos per model) and `/terms` (`terms_contact`; `terms_contact_is_standard` is false while the terms
+page names anything other than access@hebrish.app). For a whole-org health check that also covers
+collections, gating and pending requests, use the `hf-audit` skill, which runs this audit inside it. A finding means "look here", not "wrong": a bare `v2` is often
 the base model ("Parakeet TDT 0.6B v2"), Hebrew script may be a legitimate gloss, and format repos
 legitimately skip Limitations if they point to the main card.
 

@@ -9,7 +9,10 @@
 Prints JSON: per repo the findings (rule, detail, line) and the numbers found in the card, for a
 human or agent to compare with the published results. Public sources it reads:
 https://hebrish.app/data/models.json (current version, licence, repos per model) and
-https://hebrish.app/terms (the contact address for access requests).
+https://hebrish.app/terms (reported as `terms_contact`, to spot a terms page that still names an old
+address). The access-request address on cards is STANDARD_CONTACT, access@hebrish.app: the project
+standardised on it on 2026-10-22, and any other hebrish.app access address (for example the older
+access-requests@hebrish.app) is flagged.
 
 A finding is a prompt to look, not a verdict: some rules (Hebrew script, "we") have legitimate
 exceptions explained in the skill. Needs huggingface_hub (tested with 2.2.0, 2026-10-22). Cards of
@@ -23,6 +26,7 @@ import urllib.request
 from pathlib import Path
 
 SITE = "https://hebrish.app"
+STANDARD_CONTACT = "access@hebrish.app"  # the one access-request address, standardised 2026-10-22
 HEBREW = re.compile(r"[֐-׿]")
 BARE_V = re.compile(r"(?<![\w.])v[1-5](?![\w.])")  # "v3" but not "v1.0", "v2" inside "tdt-0.6b-v2"
 PCT = re.compile(r"\d+(?:\.\d+)?\s?%")
@@ -121,9 +125,12 @@ def audit(api, typ, rid, info, site, contact, check_links, save_dir):
         add("gate", f"repo is gated ({gated}) but the card has no `extra_gated_fields` form")
     if gated and typ == "dataset" and not cd.get("extra_gated_fields"):
         add("gate", f"dataset is gated ({gated}) with no form: requests arrive with no answers to review")
+    if gated and not cd.get("extra_gated_prompt"):
+        add("gate", f"repo is gated ({gated}) but the card has no `extra_gated_prompt` (terms shown on the gate)")
     addrs = set(re.findall(r"[\w.+-]+@hebrish\.app", text))
-    if contact and addrs and contact not in addrs:
-        add("contact", f"card names {sorted(addrs)}; the terms page names {contact}")
+    wrong = sorted(x for x in addrs if x.lower().startswith("access") and x.lower() != (contact or "").lower())
+    if contact and wrong:
+        add("contact", f"card names {wrong}; the access-request address is {contact}")
 
     # Site cross-check
     m, r = site.get(rid, (None, None))
@@ -131,6 +138,9 @@ def audit(api, typ, rid, info, site, contact, check_links, save_dir):
         card_lic, site_lic = str(cd.get("license") or "").lower(), (m.get("licence") or "").lower()
         if card_lic and site_lic and card_lic not in site_lic.replace(" ", "-"):
             add("licence-compare", f"card `{card_lic}` vs site `{m['licence']}`: check they say the same thing")
+        name = m.get("name")
+        if name and r and r.get("role") == "main" and name not in text:
+            add("naming", f"card never names the model line '{name}' (hebrish.app/models calls it that)")
         cur = m.get("current")
         if cur and r and r.get("role") == "main" and cur not in text:
             add("version", f"site says the current version is '{cur}'; the card never says it")
@@ -201,7 +211,8 @@ def main():
     site = site_index(fetch_json(f"{SITE}/data/models.json"))
     terms = fetch_text(f"{SITE}/terms")
     found = re.findall(r"[\w.+-]+@hebrish\.app", terms)
-    contact = max(set(found), key=found.count) if found else None
+    terms_contact = max(set(found), key=found.count) if found else None
+    contact = STANDARD_CONTACT
 
     targets = []
     if a.repos:
@@ -215,7 +226,9 @@ def main():
     for typ, rid in targets:
         info = (api.model_info if typ == "model" else api.dataset_info)(rid)
         out.append(audit(api, typ, rid, info, site, contact, a.links, a.save_dir))
-    print(json.dumps({"checked": len(out), "terms_contact": contact, "cards": out}, indent=1, ensure_ascii=False))
+    print(json.dumps({"checked": len(out), "contact": contact, "terms_contact": terms_contact,
+                      "terms_contact_is_standard": terms_contact == contact, "cards": out},
+                     indent=1, ensure_ascii=False))
 
 
 if __name__ == "__main__":

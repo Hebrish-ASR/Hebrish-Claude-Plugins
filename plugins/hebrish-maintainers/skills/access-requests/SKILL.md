@@ -14,8 +14,8 @@ description: Review pending Hugging Face access requests on the gated Hebrish mo
 - **Anyone else:** there is nothing to review without that access. If your own request has been
   waiting, or you want to report a problem with the gate (a broken form, a wrong address), open an
   issue on [Hebrish-ASR/Hebrish-App](https://github.com/Hebrish-ASR/Hebrish-App/issues), for example
-  `Hugging Face: access request to Hebrish/Sabich pending`, or use the address on
-  <https://hebrish.app/terms>. Do not put anyone else's details in the issue.
+  `Hugging Face: access request to Hebrish/Sabich pending`, or e-mail access@hebrish.app (the
+  project's one access-request address since 2026-10-22). Do not put anyone else's details in the issue.
 
 If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
 `docs/maintainer-agent-notes.md`, section *access-requests*, for the maintainer setup.
@@ -42,8 +42,9 @@ From the [Hebrish terms of use](https://hebrish.app/terms) and the maintainer's 
    checkbox ticked is normally accepted, but it is still the maintainer's call.
 3. **Commercial use needs a commercial licence:** telephony, call centres, voice agents, any product or
    hosted service sold to others, and internal use for a business's commercial operations. Flag such a
-   request clearly and let the maintainer decide; the requester is pointed to the contact address on
-   the terms page.
+   request clearly and let the maintainer decide; the requester is pointed to access@hebrish.app (the
+   standard access-request address since 2026-10-22; older cards and pages may still name
+   access-requests@hebrish.app, which the `hf-audit` and `model-cards` audits flag).
 4. **Empty or thin answers:** gated datasets have no request form (as of 2026-10-22), so their requests
    arrive with no answers. Offer the requester's public profile (`--profiles`) and let the maintainer
    decide or ask the requester by e-mail.

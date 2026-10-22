@@ -102,6 +102,14 @@ run the read-only checks and report what they find as an issue on
 
 | Skill | What it does | Access |
 | --- | --- | --- |
+| [`hf-audit`](skills/hf-audit/SKILL.md) | One read-only health check of the whole org (`scripts/hf_audit.py`): repos in no collection, dead collection items, site model list vs collections, card rules, the access@hebrish.app address, gated repos without a form, inconsistent gating, pending request counts, line naming. Markdown report by severity, or `--json`; each finding names the sibling skill and command that fixes it. | Anyone (public checks); pending requests need an HF org write/admin token; fixes: maintainer via the sibling skills. |
 | [`hf-collections`](skills/hf-collections/SKILL.md) | Keeps every model, dataset and Space in the right collections from a config file (`scripts/sync_collections.py`, dry run by default); reports repos in no collection and gaps against hebrish.app's model list. | Maintainer: HF org write/admin token to apply; anyone can run the dry run and file an issue. |
 | [`model-cards`](skills/model-cards/SKILL.md) | Audits model and dataset cards for current version, naming, numbers, licence, gate form, single-speaker note and romanized Hebrew (`scripts/audit_cards.py`, read-only); edits a card with a commit message. | Anyone audits; editing: maintainer (HF org write/admin token). |
 | [`access-requests`](skills/access-requests/SKILL.md) | Lists pending access requests on the gated models and datasets with their form answers; accepts or rejects only the users the maintainer names (`scripts/access_requests.py`, dry run by default). | Maintainer only: HF org write/admin token. |
+
+## Documentation and evaluation
+
+| Skill | What it does | Access |
+| --- | --- | --- |
+| `documentation` | Keeps the written record current after a release or benchmark round: the white paper (English and Hebrew), benchmark numbers on hebrish.app (`data/results.json`, `/benchmarks`, home chart, model pages), changelog/blog/model-card/benchmark-repo write-ups and the hand-off to the newsletter and community skills, and charts in the site's style from published results (`scripts/results_report.py`). | Anyone: tables, charts and drafts from public data, proposed edits as an issue on Hebrish-App. Maintainer: edits the private website repo, the white paper and HF cards. |
+| `evals` | Runs and judges evaluations: the public English-Hebrew code-switching benchmark on any model, metric definitions (term recall, unseen-term recall, WER, English control), the forgetting and publish gates with a suggested verdict (`scripts/verdict.py`, refuses cross-revision comparisons), recording results, and cost discipline. | Anyone: public benchmark on own compute after an approved access request to the gated test set; result by pull request. Maintainer: held-out split runs on the project's Modal account, pinned revisions and recorded verdicts. |
