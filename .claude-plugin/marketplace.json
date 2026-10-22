@@ -1,0 +1,56 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "hebrish",
+  "owner": {
+    "name": "Daniel Rosehill",
+    "url": "https://hebrish.app"
+  },
+  "metadata": {
+    "description": "Claude Code plugins for Hebrish (hebrish.app), on-device English dictation that writes Hebrew words correctly. Skills for contributors: app development, training data, the website, and outreach.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "hebrish-setup",
+      "source": {
+        "source": "github",
+        "repo": "Hebrish-ASR/Hebrish-Agent-Skills"
+      },
+      "description": "For Hebrish users: install, set up and troubleshoot the Hebrish dictation app on Linux (Ubuntu). The same skills are published in the open Agent Skills format.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Daniel Rosehill",
+        "url": "https://hebrish.app"
+      },
+      "license": "MIT",
+      "category": "Setup",
+      "tags": [
+        "hebrish",
+        "install",
+        "linux"
+      ],
+      "strict": false,
+      "skills": [
+        "./skills/install-hebrish-linux",
+        "./skills/troubleshoot-hebrish-linux"
+      ]
+    },
+    {
+      "name": "hebrish-maintainers",
+      "source": "./plugins/hebrish-maintainers",
+      "description": "Every skill for working on Hebrish: app reviews and releases, feature parity and planning, training-data contributions (vocabulary and sentences), website changes and brand assets, outreach, and the Hugging Face organisation (collections, model cards, access requests). Each skill states its access: many need only public repositories; project accounts are needed for Hugging Face, releases, the website repo and outreach.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Daniel Rosehill",
+        "url": "https://hebrish.app"
+      },
+      "license": "MIT",
+      "category": "Development",
+      "tags": [
+        "hebrish",
+        "huggingface",
+        "maintainers"
+      ]
+    }
+  ]
+}

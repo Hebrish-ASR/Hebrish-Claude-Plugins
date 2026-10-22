@@ -1,0 +1,18 @@
+{
+  "slug": "example-project",
+  "to": ["someone@example.org"],
+  "signature": "project",
+  "subject": "An English-Hebrew code-switching fine-tune of Parakeet",
+  "preheader": "On-device dictation that writes the Hebrew words English speakers in Israel use.",
+  "greeting": "Hi Alex,",
+  "paragraphs": [
+    "I'm Daniel, an English speaker in Jerusalem. I fine-tuned Parakeet TDT 0.6B v2 so that English dictation writes the Hebrew words English speakers here mix in, such as kupat holim, in one consistent romanization.",
+    "It runs on-device through the free Hebrish app. The models, data and results are open: [hebrish.app](https://hebrish.app).",
+    "Would it be useful to you? I'd be glad to hear what you think."
+  ],
+  "links_heading": "Links",
+  "links": [
+    {"label": "Models", "href": "https://hebrish.app/models", "text": "hebrish.app/models"},
+    {"label": "Try it in the browser", "href": "https://hebrish.app/demo", "text": "hebrish.app/demo"}
+  ]
+}

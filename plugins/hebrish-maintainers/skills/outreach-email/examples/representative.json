@@ -1,0 +1,33 @@
+{
+  "slug": "example-representative",
+  "to": [
+    "info@example.org"
+  ],
+  "signature": {
+    "name": "Sam Cohen",
+    "title": "for Hebrish",
+    "links": [
+      {
+        "text": "hebrish.app",
+        "href": "https://hebrish.app"
+      }
+    ]
+  },
+  "subject": "Dictation that gets makolet and arnona right",
+  "preheader": "A free on-device dictation app for English with Hebrew words in it.",
+  "greeting": "Hi Dana,",
+  "paragraphs": [
+    "I'm helping Daniel Rosehill share Hebrish, and your members came to mind.",
+    "It is free English dictation that writes words like makolet, arnona and teudat zehut in one consistent spelling. It runs on the phone or computer, so audio stays on the device.",
+    "It is a one-person, not-for-profit project. Apps for Android, Ubuntu and Windows are at [hebrish.app/download](https://hebrish.app/download).",
+    "Would you be open to mentioning it to your members?"
+  ],
+  "signoff": "Best,",
+  "links": [
+    {
+      "label": "Try it in the browser",
+      "href": "https://hebrish.app/demo",
+      "text": "hebrish.app/demo"
+    }
+  ]
+}

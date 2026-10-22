@@ -1,0 +1,78 @@
+{
+  "$comment": "Example collections config for scripts/sync_collections.py. Public repo ids only. Schema: collections-schema.md. Slugs are the Hebrish org's collections as of 2026-10-22.",
+  "org": "Hebrish",
+  "exclude": [
+    "Hebrish/Boxty-sherpa-onnx-int8",
+    "Hebrish/Parakeet-V2-Blend-No-Hebrew"
+  ],
+  "collections": [
+    {
+      "key": "jachnun",
+      "title": "Jachnun",
+      "slug": "Hebrish/jachnun-6ad7b25d761a57d56bb26d72",
+      "description": "Jachnun: English + Hebrew vocabulary. The Hebrish model, its builds for every runtime, and demos. hebrish.app",
+      "items": [
+        ["model", "Hebrish/Jachnun", "The model (.nemo). Access request."],
+        ["model", "Hebrish/Jachnun-sherpa-onnx-int8", "Android and desktop apps (sherpa-onnx int8)"],
+        ["model", "Hebrish/Jachnun-ONNX", "ONNX, for onnx-asr and the browser demo"],
+        ["model", "Hebrish/Jachnun-GGUF", "GGUF (parakeet.cpp)"],
+        ["model", "Hebrish/Jachnun-MLX", "MLX, for Apple silicon"],
+        ["space", "Hebrish/Jachnun-Demo", "Try it in your browser"]
+      ]
+    },
+    {
+      "key": "sabich",
+      "title": "Sabich",
+      "slug": "Hebrish/sabich-6ad7b241e1a420ffa0905767",
+      "description": "Sabich: Hebrew vocabulary + tech vocabulary. Code-switching plus tech terms, brand names and numbers. hebrish.app",
+      "items": [
+        ["model", "Hebrish/Sabich", "The model (.nemo). Access request."],
+        ["model", "Hebrish/Sabich-sherpa-onnx-int8", "Android and desktop apps (sherpa-onnx int8)"],
+        ["model", "Hebrish/Sabich-ONNX", "ONNX"],
+        ["model", "Hebrish/Sabich-GGUF", "GGUF (parakeet.cpp)"],
+        ["model", "Hebrish/Sabich-MLX", "MLX, for Apple silicon"],
+        ["dataset", "Hebrish/Parakeet-V2-Blend-All", "The training blend"]
+      ]
+    },
+    {
+      "key": "sentences",
+      "title": "Hebrish: sentence datasets",
+      "slug": "Hebrish/hebrish-sentence-datasets-6ad7b8408f41748a0e07dc2a",
+      "description": "Text only: the sentence banks read aloud to record the training data. Recordings: 'Hebrish: audio datasets'. hebrish.app",
+      "auto": "text-datasets",
+      "exclude": ["Hebrish/hebrew-latin-code-switching"],
+      "items": []
+    },
+    {
+      "key": "audio",
+      "title": "Hebrish: audio datasets",
+      "slug": "Hebrish/hebrish-audio-datasets-6ad7b848b41b5e7b3880fb20",
+      "description": "Recorded speech, one dataset per phenomenon (code-switching, Yiddish, brand names, numbers, noise …), plus the benchmark. hebrish.app",
+      "auto": "audio-datasets",
+      "exclude": ["Hebrish/Parakeet-V2-Blend-All"],
+      "items": []
+    },
+    {
+      "key": "spaces",
+      "title": "Hebrish: demos and Spaces",
+      "slug": "Hebrish/hebrish-demos-and-spaces-6ad7b84e4f93a379ba408876",
+      "description": "Try the models, browse the data and the benchmark. hebrish.app",
+      "auto": "spaces",
+      "exclude": ["Hebrish/README"],
+      "items": [
+        ["space", "danielrosehill/English-Hebrew-Codeswitching-ASR-Leaderboard", "The public benchmark leaderboard"]
+      ]
+    },
+    {
+      "key": "all",
+      "title": "Hebrish: English-Hebrew code-switching",
+      "slug": "Hebrish/hebrish-english-hebrew-code-switching-6ad6143c7de198780425709f",
+      "description": "Every Hebrish model, dataset and Space, including those still on danielrosehill. hebrish.app",
+      "auto": "models",
+      "items": [
+        ["space", "Hebrish/Jachnun-Demo"],
+        ["dataset", "Hebrish/Yiddish-Sentences"]
+      ]
+    }
+  ]
+}
