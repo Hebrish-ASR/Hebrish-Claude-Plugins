@@ -98,6 +98,25 @@ Pass each term's `usage` lines to `write-sentences` as the writer's register hin
 term, 5 for a templated family. Each sentence uses a different pattern. Run
 `check_contribution.py` until it has no ERROR, then `submit-data`.
 
+## First run (2026-10-23)
+
+Pack `parsha-and-frum-usage`: 111 terms (65 parsha spellings and 13 thin practice words topped up,
+33 new), 479 sentences written by four Sonnet subagents, each file reviewed by a separate Opus
+subagent, 463 kept. Lessons:
+
+- **Writers stack Hebrew words.** About 110 of 325 parsha rows had two to five companions; the
+  reviewers cut them to one. Put "the target plus at most ONE other Hebrew word" at the top of
+  every writer brief, not only in writing-rules.md.
+- **Ask reviewers to check facts.** They caught real errors: fourteen cows in Pharaoh's dream, not
+  seven; Miketz, not Vayeshev, falls on Chanukah; double parshas read together only in some years;
+  Israel and abroad out of step; and messages that break Shabbat (lighting candles, then calling).
+- **Reserved names inside a term.** `check_contribution.py` rejects "Sarah" even inside Chayei
+  Sarah, so those rows were held back for the maintainer to decide.
+- **News feeds lack lifestyle words.** On the day of the run, the feeds had nothing on shlita,
+  heimish, sheitel, tichel, aufruf, bentch or sheva brachos (see `yield_note` in `sources.json`).
+- **Short utterances.** Only 5 of 463 kept rows had 8 words or fewer, and the checker asks for
+  about 20%. Ask writers for one short row per term.
+
 ## Report
 
 The sources read and their status changes, terms per register (new and top-up), what you dropped,

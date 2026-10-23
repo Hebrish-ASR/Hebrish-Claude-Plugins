@@ -17,16 +17,22 @@
       "feed": "https://www.timesofisrael.com/feed/",
       "feed_status": "200, 14 items",
       "articles": "WebFetch (curl gets 403 from Cloudflare on articles)",
-      "registers": ["news"]
+      "registers": [
+        "news"
+      ]
     },
     {
       "id": "toi-blogs",
       "name": "Times of Israel Blogs",
       "feed": "https://blogs.timesofisrael.com/feed/",
       "feed_status": "200, 10 items",
-      "articles": "WebFetch (assumed same as toi-news; not yet tried)",
-      "registers": ["opinion", "community"],
-      "notes": "Best single source for the first-person anglo voice. https://www.timesofisrael.com/blogs/feed/ is an empty channel (200, 0 items): use the blogs. subdomain."
+      "articles": "WebFetch (confirmed 2026-10-23). WebFetch returns a small-model summary, so spellings in it are less reliable than a raw read.",
+      "registers": [
+        "opinion",
+        "community"
+      ],
+      "notes": "Best single source for the first-person anglo voice. https://www.timesofisrael.com/blogs/feed/ is an empty channel (200, 0 items): use the blogs. subdomain.",
+      "yield_2026_10_23": "About 10 items per feed page (use ?paged=2, ?paged=3), all from the last day; mostly parsha essays and election pieces. Writers use Israeli/academic forms (Bereishit, Avraham, Shabbat, parasha/sedra). Nothing on simchas, mourning, mikveh or the Rabbanut that day."
     },
     {
       "id": "toi-jewish-times",
@@ -34,7 +40,11 @@
       "feed": "https://www.timesofisrael.com/jewish-times/feed/",
       "feed_status": "200, 15 items",
       "articles": "WebFetch",
-      "registers": ["news", "torah"]
+      "registers": [
+        "news",
+        "torah"
+      ],
+      "yield_2026_10_23": "Diaspora and antisemitism news, no first-person anglo writing. Poor for usage."
     },
     {
       "id": "toi-israel-inside",
@@ -42,7 +52,11 @@
       "feed": "https://www.timesofisrael.com/israel-inside/feed/",
       "feed_status": "200, 15 items",
       "articles": "WebFetch",
-      "registers": ["news", "community"]
+      "registers": [
+        "news",
+        "community"
+      ],
+      "yield_2026_10_23": "News and election coverage; low value for everyday religious usage."
     },
     {
       "id": "jpost-front",
@@ -50,7 +64,9 @@
       "feed": "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
       "feed_status": "200, 52 items",
       "articles": "curl with a browser user agent; text in the JSON-LD \"articleBody\"",
-      "registers": ["news"]
+      "registers": [
+        "news"
+      ]
     },
     {
       "id": "jpost-israel",
@@ -58,15 +74,21 @@
       "feed": "https://www.jpost.com/rss/rssfeedsisraelnews.aspx",
       "feed_status": "200, 60 items",
       "articles": "curl, JSON-LD \"articleBody\"",
-      "registers": ["news"]
+      "registers": [
+        "news"
+      ]
     },
     {
       "id": "jpost-judaism",
       "name": "Jerusalem Post, Judaism",
       "feed": "https://www.jpost.com/rss/rssfeedsjudaism",
       "feed_status": "200, 60 items",
-      "articles": "curl, JSON-LD \"articleBody\"",
-      "registers": ["torah", "news"]
+      "articles": "curl with a browser user agent, JSON-LD \"articleBody\" (confirmed 2026-10-23; Torah-portion columns live under /judaism/torah-portion/)",
+      "registers": [
+        "torah",
+        "news"
+      ],
+      "yield_2026_10_23": "Weekly parsha and haftarah columns, Israeli forms throughout (Parashat, Bereishit, Simchat Torah). Good for parsha-as-content patterns."
     },
     {
       "id": "jpost-diaspora",
@@ -74,7 +96,9 @@
       "feed": "https://www.jpost.com/rss/rssfeedsdiaspora.aspx",
       "feed_status": "listed on https://www.jpost.com/rss on 2026-10-23; not fetched",
       "articles": "curl, JSON-LD \"articleBody\"",
-      "registers": ["news"],
+      "registers": [
+        "news"
+      ],
       "notes": "https://www.jpost.com/rss/rssfeedsjewishworld.aspx and .../rssfeedsjewishworldnews return 404. The index page https://www.jpost.com/rss lists every current feed."
     },
     {
@@ -82,24 +106,36 @@
       "name": "Yeshiva World News",
       "feed": "https://www.theyeshivaworld.com/feed",
       "feed_status": "200, 20 items",
-      "articles": "not yet tried",
-      "registers": ["frum_news", "ashkenazi"]
+      "articles": "curl works (200)",
+      "registers": [
+        "frum_news",
+        "ashkenazi"
+      ],
+      "yield_2026_10_23": "RSS descriptions are short teasers; items that day were politics and news. Low yield for simcha and lifestyle words."
     },
     {
       "id": "vinnews",
       "name": "VINnews",
       "feed": "https://vinnews.com/feed/",
       "feed_status": "200, 100 items",
-      "articles": "not yet tried",
-      "registers": ["frum_news", "ashkenazi"]
+      "articles": "curl works (200; pages about 570 KB)",
+      "registers": [
+        "frum_news",
+        "ashkenazi"
+      ],
+      "yield_2026_10_23": "Mostly general and Israeli news; Hebrew-script honorifics in death notices."
     },
     {
       "id": "matzav",
       "name": "Matzav",
       "feed": "https://matzav.com/feed/",
       "feed_status": "200, 30 items",
-      "articles": "not yet tried",
-      "registers": ["frum_news", "ashkenazi"]
+      "articles": "article pages are client-rendered shells (one extracted six words); use the feed's content:encoded instead (2026-10-23)",
+      "registers": [
+        "frum_news",
+        "ashkenazi"
+      ],
+      "yield_2026_10_23": "Richest for chareidi politics vocabulary (yeshivos, gedolim, Moetzes, kol korei)."
     },
     {
       "id": "inn",
@@ -107,8 +143,12 @@
       "feed": "https://www.israelnationalnews.com/Rss.aspx",
       "feed_status": "200, 10 items",
       "articles": "not yet tried",
-      "registers": ["news", "torah"],
-      "notes": "Religious-Zionist register: Sephardi/Israeli forms (Shabbat, Bereshit) beside Hebrew place names in Judea and Samaria."
+      "registers": [
+        "news",
+        "torah"
+      ],
+      "notes": "Religious-Zionist register: Sephardi/Israeli forms (Shabbat, Bereshit) beside Hebrew place names in Judea and Samaria.",
+      "yield_2026_10_23": "The feed is news flashes only; no Torah content. Low value for this register."
     },
     {
       "id": "jns",
@@ -116,7 +156,9 @@
       "feed": "https://www.jns.org/feed/",
       "feed_status": "200, 30 items",
       "articles": "not yet tried",
-      "registers": ["news"]
+      "registers": [
+        "news"
+      ]
     },
     {
       "id": "ynetnews",
@@ -124,7 +166,9 @@
       "feed": "https://www.ynetnews.com/Integration/StoryRss3082.xml",
       "feed_status": "200, 30 items",
       "articles": "not yet tried",
-      "registers": ["news"]
+      "registers": [
+        "news"
+      ]
     },
     {
       "id": "israel-hayom",
@@ -132,40 +176,59 @@
       "feed": "https://www.israelhayom.com/feed/",
       "feed_status": "200, 10 items",
       "articles": "not yet tried",
-      "registers": ["news"]
+      "registers": [
+        "news"
+      ]
     },
     {
       "id": "chabad-parsha",
       "name": "Chabad.org, weekly parsha",
       "feed": "https://www.chabad.org/tools/rss/parsha_rss.xml",
       "feed_status": "200, 30 items (this week's parsha: Nutshell, Text, Rashi, In Depth, Chassidic Masters)",
-      "articles": "not yet tried",
-      "registers": ["torah", "ashkenazi"],
-      "notes": "Daniel, 2026-10-23: chabad.org for Ashkenazi pronunciation. Chabad spells parshas, holidays and terms the Ashkenazi way. The feed only has the current week, so one run covers one parsha; for the full cycle walk https://www.chabad.org/parshah/ instead. https://www.chabad.org/news/rss.xml returns 403."
+      "articles": "curl gets 403 on article and parshah pages; WebFetch works (2026-10-23)",
+      "registers": [
+        "torah",
+        "ashkenazi"
+      ],
+      "notes": "Daniel, 2026-10-23: chabad.org for Ashkenazi pronunciation. Chabad spells parshas, holidays and terms the Ashkenazi way. The feed only has the current week, so one run covers one parsha; for the full cycle walk https://www.chabad.org/parshah/ instead. https://www.chabad.org/news/rss.xml returns 403.",
+      "yield_2026_10_23": "Parshah/Parshat with -ah endings, but Shabbat rather than Shabbos on the page read: Chabad's site is not consistently Ashkenazi. Frum news (COLlive, Anash) is the more reliable Ashkenazi source."
     },
     {
       "id": "collive",
       "name": "COLlive (Chabad community news)",
       "feed": "https://collive.com/feed/",
       "feed_status": "200, 20 items",
-      "articles": "not yet tried",
-      "registers": ["frum_news", "ashkenazi", "community"]
+      "articles": "curl works (200)",
+      "registers": [
+        "frum_news",
+        "ashkenazi",
+        "community"
+      ],
+      "yield_2026_10_23": "Best for yeshiva and Chabad usage (bochur, Rebbeim, shliach, Shiur Alef). Wedding posts are photos with no text."
     },
     {
       "id": "anash",
       "name": "Anash.org",
       "feed": "https://anash.org/feed/",
       "feed_status": "200, 30 items",
-      "articles": "not yet tried",
-      "registers": ["frum_news", "ashkenazi", "community"]
+      "articles": "curl works (200)",
+      "registers": [
+        "frum_news",
+        "ashkenazi",
+        "community"
+      ],
+      "yield_2026_10_23": "Best for Chabad community vocabulary (engagement notices with the l'chaim, mikveh funding, halacha columns on plag hamincha and bein hashmashos)."
     },
     {
       "id": "aish",
       "name": "Aish.com",
       "feed": "https://aish.com/feed/",
       "feed_status": "200, 10 items",
-      "articles": "not yet tried",
-      "registers": ["torah"]
+      "articles": "curl works (200); the body sits inside full-page HTML, so strip scripts and navigation (2026-10-23)",
+      "registers": [
+        "torah"
+      ],
+      "yield_2026_10_23": "Parsha essays titled with the parsha plus a theme; neutral forms (parsha, Shabbat)."
     },
     {
       "id": "janglo",
@@ -173,20 +236,47 @@
       "feed": null,
       "feed_status": "no feed found; home page 200 (HTML)",
       "articles": "not yet tried; probably needs Claude in Chrome",
-      "registers": ["community"],
+      "registers": [
+        "community"
+      ],
       "notes": "Classifieds and community board for anglos in Israel. Posts are by private individuals: take usage patterns only, never names or details."
     }
   ],
   "failed": [
-    {"url": "https://www.reddit.com/r/Israel/.rss", "status": "403 from curl", "next": "WebFetch, then Claude in Chrome"},
-    {"url": "https://www.reddit.com/r/Judaism/.rss", "status": "403 from curl", "next": "WebFetch, then Claude in Chrome"},
-    {"url": "https://www.jewishpress.com/feed/", "status": "403 from curl", "next": "WebFetch"},
-    {"url": "https://hamodia.com/feed/", "status": "404 (also /rss)", "next": "find the feed link on the home page"},
-    {"url": "https://outorah.org/feed/", "status": "404", "next": "find the feed link on the home page"},
-    {"url": "https://www.ou.org/torah/feed/", "status": "200 but HTML, no items", "next": "find the feed link on the home page"}
+    {
+      "url": "https://www.reddit.com/r/Israel/.rss",
+      "status": "403 from curl",
+      "next": "WebFetch, then Claude in Chrome"
+    },
+    {
+      "url": "https://www.reddit.com/r/Judaism/.rss",
+      "status": "403 from curl",
+      "next": "WebFetch, then Claude in Chrome"
+    },
+    {
+      "url": "https://www.jewishpress.com/feed/",
+      "status": "403 from curl",
+      "next": "WebFetch"
+    },
+    {
+      "url": "https://hamodia.com/feed/",
+      "status": "404 (also /rss)",
+      "next": "find the feed link on the home page"
+    },
+    {
+      "url": "https://outorah.org/feed/",
+      "status": "404",
+      "next": "find the feed link on the home page"
+    },
+    {
+      "url": "https://www.ou.org/torah/feed/",
+      "status": "200 but HTML, no items",
+      "next": "find the feed link on the home page"
+    }
   ],
   "to_try": [
     "Google Groups anglo community lists (Anglo-List, city lists for Ra'anana, Beit Shemesh, Modiin, Efrat): many are member-only; use only lists with public archives",
     "Nefesh B'Nefesh guides and forums (aliyah bureaucracy vocabulary)"
-  ]
+  ],
+  "yield_note": "On the first run (2026-10-23) the news feeds carried almost none of the simcha and lifestyle words (shlita, heimish, sheitel, tichel, aufruf, bentch, sheva brachos, vort, shtender, bekeshe, kiddush levana). Writers used their own knowledge for those, and the pack note says so. Better places for them: simcha and lifestyle sections, community notices, classifieds."
 }
