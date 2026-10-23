@@ -84,10 +84,12 @@ core engine, model store) and check what they report against the code before it 
      302 to the CDN file. Use GET as shown: a HEAD (`curl -I`) on `/get/*` returns 405, which looks
      broken and isn't.
 
-## On a device (only if `adb devices` lists one)
+## On a device or an emulator
 
 Use an Android device connected over adb, if you have one. `unauthorized` means the device owner
-must accept the prompt on the device; no device means skip this section and say so.
+must accept the prompt on the device. With no device, use an emulator (next section) for anything
+visual: layout, theme, dark mode, crashes on opening a screen. Recording and dictation still need a
+real device; say so in the report.
 
 Never uninstall, and never install a debug APK over a release install: the signatures differ, and
 uninstalling deletes the downloaded models and settings. If the installed version is behind the
@@ -98,7 +100,9 @@ release, ask before installing the release APK.
   `adb shell settings get secure enabled_accessibility_services` includes the floating mic if it
   is in use.
 - Start each screen and watch for crashes: `adb logcat -c`, then
-  `adb shell am start -n app.hebrish.dictation/.<Activity>` for `MainActivity`, `SetupActivity`,
+  `adb shell am start -n app.hebrish.dictation/.<Activity>` (only `MainActivity` is exported; the
+  others refuse with "Permission Denial ... not exported" unless adb runs as root, which an
+  emulator allows: `adb root`) for `MainActivity`, `SetupActivity`,
   `ModelsActivity`, `KeyboardActivity`, `FloatingMicActivity`, `ControlsActivity`, `AboutActivity`,
   then `adb logcat -d -b crash` and `adb logcat -d | grep -E 'AndroidRuntime|hebrish'`.
   Screenshot with `adb exec-out screencap -p > <scratch dir>/<screen>.png` and look at it.
@@ -106,6 +110,31 @@ release, ask before installing the release APK.
   verified" on the device, moving it out of that list in `maintaining.md` with the date and the
   Android version (not a personal device name) is the review's one doc edit:
   `Android docs: verified on Android <version>, <date>`.
+
+### Emulator (no device needed; verified 2026-10-23 on Ubuntu x86-64 with KVM)
+
+Google's official `android-skills` plugin (skill `android-cli`; github.com/android/skills, which
+is its own Claude Code marketplace) covers the generic emulator loop with Google's
+`android` CLI. Plain SDK tools do the same; what is specific to this app:
+
+1. **Image:** an x86-64 `google_apis` image of API 30+ (`system-images;android-34;google_apis;x86_64`
+   was used). The APK ships arm64-v8a only; those images translate arm64 and install it. Older or
+   AOSP images refuse it (`INSTALL_FAILED_NO_MATCHING_ABIS`) (I for the refusal; the install on
+   API 34 is V).
+   `sdkmanager --install emulator "system-images;android-34;google_apis;x86_64"`, then
+   `avdmanager create avd -n hebrish34 -k "system-images;android-34;google_apis;x86_64" -d pixel_6`.
+2. **Boot headless:** `emulator -avd hebrish34 -no-window -no-audio -no-snapshot -gpu swiftshader_indirect &`,
+   then wait for `adb shell getprop sys.boot_completed` = 1 (about 30 s with KVM).
+3. **Install the flavour APK:** the app has product flavours, so `assembleDebug` writes
+   `android/app/build/outputs/apk/fdroid/debug/app-fdroid-debug.apk` (and `play/`).
+   `outputs/apk/debug/app-debug.apk` may be a stale leftover from before the flavours and is never
+   refreshed: installing it shows an old build with no error. Check the APK's time first.
+4. **Screens:** `adb root` (emulator only), then `am start` each activity as above and
+   `adb exec-out screencap -p > <scratch>/<screen>.png`. Dark mode: `adb shell cmd uimode night yes`.
+   `adb shell settings put global window_animation_scale 0` keeps screenshots from catching a
+   transition.
+5. Crash lines from other apps (the Google search app crashes with SIGILL on this image) are
+   not ours: filter `adb logcat -d -b crash` by `app.hebrish`.
 
 ## Report
 
