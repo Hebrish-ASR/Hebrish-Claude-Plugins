@@ -36,6 +36,10 @@ Routes verified on 2026-10-19, in the order to try them:
 
 If both fail, try a real browser (Claude in Chrome) before giving up.
 
+More feeds (Times of Israel sections, JPost Judaism and Diaspora, Ynetnews, Israel Hayom, JNS,
+Arutz Sheva) and their status as last checked are in `${CLAUDE_PLUGIN_ROOT}/skills/anglo-usage/references/sources.json`;
+record any route change there too.
+
 - Save downloads in their own folder and extract with a script kept outside it (regex
   `"articleBody"\s*:\s*"(.*?)(?<!\\)"`, JSON-decode, strip tags). Reading the article body beats
   asking a summariser for names.

@@ -45,13 +45,14 @@ sentences, so a contribution becomes training data when he reads it aloud.
 | `bank-coverage` | Measures the public sentence bank and lexicon: balance, variety, thin terms | Anyone |
 | `vocab-gaps` | Finds missing or thin Hebrew vocabulary and drafts the terms | Anyone |
 | `news-vocab` | Mines recent Israeli English-language news for uncovered names and terms | Anyone |
+| `anglo-usage` | Mines anglo and Orthodox English writing (ToI blogs, JPost Judaism, Yeshiva World, Chabad.org) for how Hebrew words are used, including Ashkenazi forms, and drafts terms and top-ups | Anyone |
 | `write-sentences` | Writes and reviews sentences with Claude subagents (no API key) | Anyone |
 | `generate-synthetic` | Writes a large set with Claude Haiku 5.5 on the Batches API | Anyone with their own Anthropic API key |
 | `submit-data` | Checks the contribution file and files it as an issue | Anyone (merging: maintainer) |
 
 ### Contribution flow
 
-1. `bank-coverage` shows what the bank needs; `vocab-gaps` or `news-vocab` drafts new terms.
+1. `bank-coverage` shows what the bank needs; `vocab-gaps`, `news-vocab` or `anglo-usage` drafts new terms.
 2. `write-sentences` (or `generate-synthetic`) writes sentences; a separate reviewer marks each one.
 3. Everything goes in one JSON file (`skills/submit-data/references/contribution-format.md`).
 4. `submit-data` runs `check_contribution.py` against the public data and opens an issue on

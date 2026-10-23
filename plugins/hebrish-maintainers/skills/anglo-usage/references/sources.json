@@ -1,0 +1,192 @@
+{
+  "about": "English-language text sources where English speakers in Israel and the Orthodox English-speaking world use Hebrew words inside English. Read by the anglo-usage and news-vocab skills. Text is mined for terms, spellings and usage patterns only; source text is never copied into the bank (posts and articles are copyrighted by their authors, and the bank feeds public datasets).",
+  "verified": "2026-10-23",
+  "verified_how": "curl -sL -A 'Mozilla/5.0' on each feed from an Israeli residential IP; status and <item> count recorded. Article routes are from news-vocab (2026-10-19) unless stated.",
+  "registers": {
+    "news": "Israeli English news: names, places, institutions, Hebrew loan words in coverage",
+    "opinion": "first-person anglo voice: aliyah, army, bureaucracy, family life",
+    "frum_news": "Orthodox / Haredi English news: yeshivish and Ashkenazi forms (Shabbos, shlita, bochur)",
+    "torah": "weekly parsha and holiday content: parsha names, Torah vocabulary",
+    "ashkenazi": "Ashkenazi transliteration (Bereishis, Toldos, Shemos, Sukkos)",
+    "community": "local anglo noticeboards and lists: errands, simchas, services, neighbourhood life"
+  },
+  "sources": [
+    {
+      "id": "toi-news",
+      "name": "Times of Israel (news)",
+      "feed": "https://www.timesofisrael.com/feed/",
+      "feed_status": "200, 14 items",
+      "articles": "WebFetch (curl gets 403 from Cloudflare on articles)",
+      "registers": ["news"]
+    },
+    {
+      "id": "toi-blogs",
+      "name": "Times of Israel Blogs",
+      "feed": "https://blogs.timesofisrael.com/feed/",
+      "feed_status": "200, 10 items",
+      "articles": "WebFetch (assumed same as toi-news; not yet tried)",
+      "registers": ["opinion", "community"],
+      "notes": "Best single source for the first-person anglo voice. https://www.timesofisrael.com/blogs/feed/ is an empty channel (200, 0 items): use the blogs. subdomain."
+    },
+    {
+      "id": "toi-jewish-times",
+      "name": "Times of Israel, Jewish Times section",
+      "feed": "https://www.timesofisrael.com/jewish-times/feed/",
+      "feed_status": "200, 15 items",
+      "articles": "WebFetch",
+      "registers": ["news", "torah"]
+    },
+    {
+      "id": "toi-israel-inside",
+      "name": "Times of Israel, Israel Inside section",
+      "feed": "https://www.timesofisrael.com/israel-inside/feed/",
+      "feed_status": "200, 15 items",
+      "articles": "WebFetch",
+      "registers": ["news", "community"]
+    },
+    {
+      "id": "jpost-front",
+      "name": "Jerusalem Post (front page)",
+      "feed": "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
+      "feed_status": "200, 52 items",
+      "articles": "curl with a browser user agent; text in the JSON-LD \"articleBody\"",
+      "registers": ["news"]
+    },
+    {
+      "id": "jpost-israel",
+      "name": "Jerusalem Post, Israel News",
+      "feed": "https://www.jpost.com/rss/rssfeedsisraelnews.aspx",
+      "feed_status": "200, 60 items",
+      "articles": "curl, JSON-LD \"articleBody\"",
+      "registers": ["news"]
+    },
+    {
+      "id": "jpost-judaism",
+      "name": "Jerusalem Post, Judaism",
+      "feed": "https://www.jpost.com/rss/rssfeedsjudaism",
+      "feed_status": "200, 60 items",
+      "articles": "curl, JSON-LD \"articleBody\"",
+      "registers": ["torah", "news"]
+    },
+    {
+      "id": "jpost-diaspora",
+      "name": "Jerusalem Post, Diaspora (the Jewish World section)",
+      "feed": "https://www.jpost.com/rss/rssfeedsdiaspora.aspx",
+      "feed_status": "listed on https://www.jpost.com/rss on 2026-10-23; not fetched",
+      "articles": "curl, JSON-LD \"articleBody\"",
+      "registers": ["news"],
+      "notes": "https://www.jpost.com/rss/rssfeedsjewishworld.aspx and .../rssfeedsjewishworldnews return 404. The index page https://www.jpost.com/rss lists every current feed."
+    },
+    {
+      "id": "yeshiva-world",
+      "name": "Yeshiva World News",
+      "feed": "https://www.theyeshivaworld.com/feed",
+      "feed_status": "200, 20 items",
+      "articles": "not yet tried",
+      "registers": ["frum_news", "ashkenazi"]
+    },
+    {
+      "id": "vinnews",
+      "name": "VINnews",
+      "feed": "https://vinnews.com/feed/",
+      "feed_status": "200, 100 items",
+      "articles": "not yet tried",
+      "registers": ["frum_news", "ashkenazi"]
+    },
+    {
+      "id": "matzav",
+      "name": "Matzav",
+      "feed": "https://matzav.com/feed/",
+      "feed_status": "200, 30 items",
+      "articles": "not yet tried",
+      "registers": ["frum_news", "ashkenazi"]
+    },
+    {
+      "id": "inn",
+      "name": "Israel National News (Arutz Sheva)",
+      "feed": "https://www.israelnationalnews.com/Rss.aspx",
+      "feed_status": "200, 10 items",
+      "articles": "not yet tried",
+      "registers": ["news", "torah"],
+      "notes": "Religious-Zionist register: Sephardi/Israeli forms (Shabbat, Bereshit) beside Hebrew place names in Judea and Samaria."
+    },
+    {
+      "id": "jns",
+      "name": "JNS",
+      "feed": "https://www.jns.org/feed/",
+      "feed_status": "200, 30 items",
+      "articles": "not yet tried",
+      "registers": ["news"]
+    },
+    {
+      "id": "ynetnews",
+      "name": "Ynetnews",
+      "feed": "https://www.ynetnews.com/Integration/StoryRss3082.xml",
+      "feed_status": "200, 30 items",
+      "articles": "not yet tried",
+      "registers": ["news"]
+    },
+    {
+      "id": "israel-hayom",
+      "name": "Israel Hayom (English)",
+      "feed": "https://www.israelhayom.com/feed/",
+      "feed_status": "200, 10 items",
+      "articles": "not yet tried",
+      "registers": ["news"]
+    },
+    {
+      "id": "chabad-parsha",
+      "name": "Chabad.org, weekly parsha",
+      "feed": "https://www.chabad.org/tools/rss/parsha_rss.xml",
+      "feed_status": "200, 30 items (this week's parsha: Nutshell, Text, Rashi, In Depth, Chassidic Masters)",
+      "articles": "not yet tried",
+      "registers": ["torah", "ashkenazi"],
+      "notes": "Daniel, 2026-10-23: chabad.org for Ashkenazi pronunciation. Chabad spells parshas, holidays and terms the Ashkenazi way. The feed only has the current week, so one run covers one parsha; for the full cycle walk https://www.chabad.org/parshah/ instead. https://www.chabad.org/news/rss.xml returns 403."
+    },
+    {
+      "id": "collive",
+      "name": "COLlive (Chabad community news)",
+      "feed": "https://collive.com/feed/",
+      "feed_status": "200, 20 items",
+      "articles": "not yet tried",
+      "registers": ["frum_news", "ashkenazi", "community"]
+    },
+    {
+      "id": "anash",
+      "name": "Anash.org",
+      "feed": "https://anash.org/feed/",
+      "feed_status": "200, 30 items",
+      "articles": "not yet tried",
+      "registers": ["frum_news", "ashkenazi", "community"]
+    },
+    {
+      "id": "aish",
+      "name": "Aish.com",
+      "feed": "https://aish.com/feed/",
+      "feed_status": "200, 10 items",
+      "articles": "not yet tried",
+      "registers": ["torah"]
+    },
+    {
+      "id": "janglo",
+      "name": "Janglo",
+      "feed": null,
+      "feed_status": "no feed found; home page 200 (HTML)",
+      "articles": "not yet tried; probably needs Claude in Chrome",
+      "registers": ["community"],
+      "notes": "Classifieds and community board for anglos in Israel. Posts are by private individuals: take usage patterns only, never names or details."
+    }
+  ],
+  "failed": [
+    {"url": "https://www.reddit.com/r/Israel/.rss", "status": "403 from curl", "next": "WebFetch, then Claude in Chrome"},
+    {"url": "https://www.reddit.com/r/Judaism/.rss", "status": "403 from curl", "next": "WebFetch, then Claude in Chrome"},
+    {"url": "https://www.jewishpress.com/feed/", "status": "403 from curl", "next": "WebFetch"},
+    {"url": "https://hamodia.com/feed/", "status": "404 (also /rss)", "next": "find the feed link on the home page"},
+    {"url": "https://outorah.org/feed/", "status": "404", "next": "find the feed link on the home page"},
+    {"url": "https://www.ou.org/torah/feed/", "status": "200 but HTML, no items", "next": "find the feed link on the home page"}
+  ],
+  "to_try": [
+    "Google Groups anglo community lists (Anglo-List, city lists for Ra'anana, Beit Shemesh, Modiin, Efrat): many are member-only; use only lists with public archives",
+    "Nefesh B'Nefesh guides and forums (aliyah bureaucracy vocabulary)"
+  ]
+}
