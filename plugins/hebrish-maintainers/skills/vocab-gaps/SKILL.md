@@ -30,6 +30,12 @@ and `assemble.py` at `${CLAUDE_PLUGIN_ROOT}/skills/submit-data/scripts/`. If `CL
 is unset, clone https://github.com/Hebrish-ASR/Hebrish-Claude-Plugins and use the same paths under
 `plugins/hebrish-maintainers/`.
 
+0. **Read the lexicon's saturation** (maintainer access; notes section *vocab-gaps*). The lexicon
+   saturation report counts the recorded takes per term and returns `avoid` (terms with enough
+   recordings: never propose them, not even as companions) and `next_targets` (thin or unrecorded
+   terms still short of sentences, with how many to `write`). Its `next_targets` are the top-ups,
+   ahead of `thin_terms.rows` below; aim new domains at the categories it shows as thin, so the
+   code-switching lexicon gets wider rather than deeper.
 1. **Measure depth.** `python3 bank_stats.py --covered covered.txt > coverage.json`.
    `thin_terms.rows` are covered terms with fewer than 3 bank sentences: these are **top-ups**
    (`"topup": true`), not new terms. Prefer everyday words over junk entries (the lexicon still has

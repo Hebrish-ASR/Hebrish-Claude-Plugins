@@ -30,6 +30,9 @@ https://github.com/Hebrish-ASR/Hebrish-Claude-Plugins and use the same paths und
 
 Then refresh the inputs:
 `python3 ${CLAUDE_PLUGIN_ROOT}/skills/bank-coverage/scripts/bank_stats.py --avoid avoid.json --covered covered.txt`.
+With maintainer access, also run the lexicon saturation report (notes section *write-sentences*):
+add its `avoid` terms to the writers' over-used words, and take top-ups from its `next_targets`
+(`write` sentences each) before `thin_terms.rows`.
 
 ## 2. Writers
 
