@@ -70,6 +70,11 @@ Contributors: open the pull request now (see Access). Maintainer: continue.
 
 ## 3. Release notes, version, tag, CI (maintainer)
 
+**Release gate first.** `planning/backlog.md` starts with a `## Release gate` (since 2026-10-24):
+releases are batched per sprint and go out only when its condition is met (by default, when Daniel
+says the sprint is done). If it is not met, stop after step 2: commit, push, and add the change to
+*Waiting to ship* in the gate. Only its hotfix rule allows an early release.
+
 - Overwrite `.github/android-release-notes.md`; CI uses it as the GitHub release body. Format: bold
   one-line headline `**X.Y.Z: …**`, then plain user-facing bullets, last bullet "Not yet tested on
   a device. arm64-v8a only. Android 9+. Downloads: [hebrish.app/download](https://hebrish.app/download)."
