@@ -109,6 +109,7 @@ run the read-only checks and report what they find as an issue on
 | [`hf-collections`](skills/hf-collections/SKILL.md) | Keeps every model, dataset and Space in the right collections from a config file (`scripts/sync_collections.py`, dry run by default); reports repos in no collection and gaps against hebrish.app's model list. | Maintainer: HF org write/admin token to apply; anyone can run the dry run and file an issue. |
 | [`model-cards`](skills/model-cards/SKILL.md) | Audits model and dataset cards for current version, naming, numbers, licence, gate form, single-speaker note and romanized Hebrew (`scripts/audit_cards.py`, read-only); edits a card with a commit message. | Anyone audits; editing: maintainer (HF org write/admin token). |
 | [`access-requests`](skills/access-requests/SKILL.md) | Lists pending access requests on the gated models and datasets with their form answers; accepts or rejects only the users the maintainer names (`scripts/access_requests.py`, dry run by default). | Maintainer only: HF org write/admin token. |
+| [`traction-stats`](skills/traction-stats/SKILL.md) | Refreshes the Hugging Face download numbers and minutes recorded on hebrish.app/about ("First weeks in numbers") and the dated history in `data/traction.json`, with the wording that is safe to quote in grant applications. | Website repo push; `HF_TOKEN` optional. |
 
 ## Documentation and evaluation
 
