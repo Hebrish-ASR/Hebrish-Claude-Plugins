@@ -80,10 +80,17 @@ says the sprint is done). If it is not met, stop after step 2: commit, push, and
   a device. arm64-v8a only. Android 9+. Downloads: [hebrish.app/download](https://hebrish.app/download)."
   (drop the first sentence once it has been tested). New features → minor bump, fixes only → patch.
 - If `android/docs/maintaining.md` has a section titled "after X.Y.Z", rename it to the new version.
+- **Write the hebrish.app changelog entry first** (step 5), before the tag: the apps' What's new
+  list is baked from that page at tag time (since 2026-10-25). `release-tag.sh` runs
+  `scripts/bake_updates.py`, which writes the changelog's last 20 entries up to today into
+  `shared/updates.json` and `desktop/hebrish/data/updates.json`, and prints a note if the newest
+  entry doesn't name the version. If the website checkout isn't next to the repo it fetches
+  `https://hebrish.app/changelog`, so deploy the entry first; `SKIP_UPDATES_BAKE=1` keeps the
+  committed list.
 - Commit the code and docs, then let the script set the version and tag (it bumps `versionName`
   and `versionCode`, refuses a version that isn't newer or notes that don't start with `**X.Y.Z`,
-  commits only the version file and notes, makes an annotated tag; `--push` pushes `main` and the
-  tag). CI fails a tag that differs from the code.
+  re-bakes What's new, commits only the version file, the notes and the two `updates.json` copies,
+  makes an annotated tag; `--push` pushes `main` and the tag). CI fails a tag that differs from the code.
 
 ```bash
 scripts/release-tag.sh android X.Y.Z --push
@@ -140,7 +147,8 @@ Android install on hebrish.app; the APK is second.
 
 ## 5. Elsewhere (maintainer)
 
-- hebrish.app changelog (private website repo): an `<article class="log">` at the top of
+- hebrish.app changelog (private website repo; written before the tag, see step 3, because it
+  feeds the in-app What's new): an `<article class="log">` at the top of
   `changelog.html`, copying the existing ones, tag text `Android X.Y.Z`, plain user language, the
   same facts as the release notes. Download links follow `latest.json`; never put a versioned file
   URL on a page. If setup steps changed, keep `setup.html` and `SetupActivity` in step (same step
