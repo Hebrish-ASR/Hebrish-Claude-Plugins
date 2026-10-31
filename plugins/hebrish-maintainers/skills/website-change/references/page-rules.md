@@ -55,7 +55,7 @@ Where to find sources: see the `check-page-claims` skill in this plugin.
 
 ## 4. Voice
 
-- **One person, no organisation.** Hebrish is Daniel Rosehill's one-person project.
+- **One person, no organisation.** Hebrish is Daniel Rosehill's personal project.
   Never "we", "our", "us" or a team ("Mission", not "Our mission"; "tell Daniel", not "tell us"). The
   legal "we" in the terms of use is the exception. Dated changelog entries are history: leave their
   wording.

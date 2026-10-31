@@ -52,7 +52,7 @@ shapes here the first time they are run.
 - Facts from the live site only: https://hebrish.app/changelog (what changed),
   https://hebrish.app/llms.txt and https://hebrish.app/benchmarks (numbers). Numbers exactly as
   published, never rounded or invented; targets on `/roadmap` are goals, not results.
-- Voice: plain, specific, short sentences, no hype, no emojis. Hebrish is Daniel's one-person
+- Voice: plain, specific, short sentences, no hype, no emojis. Hebrish is Daniel's personal
   project: "I" from Daniel, never "we". Hebrew words romanized (makolet, arnona), never Hebrew
   script. Model names: Sabich (recommended), Jachnun, Shakshuka, Meorav; checkpoints PoC-1 to
   PoC-5.

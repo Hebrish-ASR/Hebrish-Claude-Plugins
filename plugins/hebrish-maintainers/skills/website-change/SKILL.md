@@ -1,6 +1,6 @@
 ---
 name: website-change
-description: Propose or make a change to hebrish.app (text, a number, a new page, nav or footer) following the site's page rules - claims match their source, no rounding or invented benchmark numbers, model names (Jachnun, Sabich, Shakshuka, Meorav, PoC-N), romanized Hebrew, one-person voice, generated nav/footer, /he mirroring. Use when asked to fix, update, add or suggest something on the Hebrish website.
+description: Propose or make a change to hebrish.app (text, a number, a new page, nav or footer) following the site's page rules - claims match their source, no rounding or invented benchmark numbers, model names (Jachnun, Sabich, Shakshuka, Meorav, PoC-N), romanized Hebrew, first-person voice (I, never we), generated nav/footer, /he mirroring. Use when asked to fix, update, add or suggest something on the Hebrish website.
 ---
 
 # Change hebrish.app

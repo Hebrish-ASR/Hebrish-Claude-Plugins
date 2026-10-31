@@ -24,7 +24,7 @@ The audit itself never writes: it calls only list, info, get and download endpoi
 If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
 `docs/maintainer-agent-notes.md`, section *hf-audit*, for the maintainer setup.
 
-Hebrish is Daniel Rosehill's one-person project (<https://hebrish.app>). Written
+Hebrish is Daniel Rosehill's personal project (<https://hebrish.app>). Written
 2026-10-22; the script was run against the live org that day (results below).
 
 ## What it checks

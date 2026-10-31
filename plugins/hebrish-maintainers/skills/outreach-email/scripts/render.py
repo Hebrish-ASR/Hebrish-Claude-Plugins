@@ -44,12 +44,7 @@ PROJECT_SIGNATURE = {
     "title": "Maker of Hebrish",
     "location": "Jerusalem, Israel",
     "photo": "https://www.danielrosehill.com/images/email/daniel-avatar.jpg",
-    "links": [
-        {"text": "hebrish.app", "href": "https://hebrish.app"},
-        {"text": "danielrosehill.com", "href": "https://www.danielrosehill.com"},
-        {"text": "GitHub", "href": "https://github.com/danielrosehill"},
-        {"text": "Hugging Face", "href": "https://huggingface.co/danielrosehill"},
-    ],
+    # No links in the signature: the footer quick links carry them (Daniel, 2026-10-31: signature was cluttered on a phone).
 }
 
 # Fixed footer on every outreach email (Daniel, 2026-10-31: one professional boilerplate, never
@@ -62,7 +57,11 @@ FOOTER_LINKS = [
     ("Benchmarks", "https://hebrish.app/benchmarks"),
 ]
 FOOTER_LINES = [
-    "This is a personal email from Daniel Rosehill about Hebrish, a one-person project. "
+    # Mission line (Daniel, 2026-10-31): "personal project", never "one-person project",
+    # non-profit or non-commercial (licensing is being explored).
+    "Hebrish is a personal project dedicated to improving speech-recognition accuracy for "
+    "English-speaking immigrants in Israel and English speakers across the Jewish world.",
+    "This is a personal email from Daniel Rosehill about Hebrish. "
     "Outreach emails may be written with AI assistance.",
     "You have not been added to any mailing list. If you would rather not hear about Hebrish again, "
     "reply with \"unsubscribe\" and you won't be contacted again.",
@@ -108,16 +107,16 @@ def render(brief):
 
     header = ""
     if show_logo:
-        header = f"""    <tr><td style="padding:24px 40px 20px;">
-      <a href="https://hebrish.app" style="text-decoration:none;"><img src="{LOGO}" width="198" height="44" alt="Hebrish" style="display:block;width:198px;height:44px;border:0;"></a>
+        header = f"""    <tr><td style="padding:20px 40px 16px;">
+      <a href="https://hebrish.app" style="text-decoration:none;"><img src="{LOGO}" width="126" height="28" alt="Hebrish" style="display:block;width:126px;height:28px;border:0;"></a>
     </td></tr>
     <tr><td style="padding:0 40px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:3px;line-height:3px;font-size:0;background:{C["gold"]};width:48px;">&nbsp;</td><td style="height:3px;line-height:3px;font-size:0;background:{C["line"]};">&nbsp;</td></tr></table></td></tr>
 """
 
     photo_cell = ""
     if sig.get("photo"):
-        photo_cell = f"""          <td valign="middle" style="padding-right:16px;width:64px;">
-            <img src="{html.escape(sig["photo"])}" width="64" height="64" alt="{html.escape(sig["name"])}" style="display:block;width:64px;height:64px;border-radius:50%;border:2px solid {C["line"]};">
+        photo_cell = f"""          <td valign="middle" style="padding-right:12px;width:48px;">
+            <img src="{html.escape(sig["photo"])}" width="48" height="48" alt="{html.escape(sig["name"])}" style="display:block;width:48px;height:48px;border-radius:50%;border:2px solid {C["line"]};">
           </td>
 """
     sub = " &middot; ".join(html.escape(sig[k]) for k in ("title", "location") if sig.get(k))

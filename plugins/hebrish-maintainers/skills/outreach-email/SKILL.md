@@ -63,14 +63,21 @@ Brief fields: `slug`, `to[]`, `signature` (`"project"` or `{"name", "title"?, "l
 optional `links_heading` and `links[]` of `{label, href, text}`.
 
 The logo is `https://hebrish.app/img/brand/wordmark-1080.png` (PNG, because Gmail and Outlook
-drop SVG). Colours are the light set of the Hebrish brand (https://hebrish.app/brand).
+drop SVG), shown at 126x28. Colours are the light set of the Hebrish brand (https://hebrish.app/brand).
+
+Layout decisions (Daniel, 2026-10-31, from a test read on a phone): the greeting is body text
+(16px, regular), not a serif heading, so it reads as a salutation. The project signature is
+name, title and location with a 48px photo and no links (the footer quick links carry Models,
+Datasets, Benchmarks). The footer opens with the mission line (first of `FOOTER_LINES` in
+`render.py`). Wording: "personal project", never "one-person project", non-profit or
+non-commercial.
 
 ## Steps
 
 1. **Facts.** Take every claim from the live site, not from memory or an old draft:
    https://hebrish.app/llms.txt (key facts and current numbers), `/benchmarks`, `/changelog`,
    `/download`. Rules:
-   - Hebrish is Daniel Rosehill's one-person project. Never "we" or "the team".
+   - Hebrish is Daniel Rosehill's personal project (say "personal project", never "personal project"). Never "we" or "the team".
    - Numbers exactly as published, never rounded or invented. Targets on `/roadmap` are goals,
      not results. Say which benchmark a number is from if you quote one.
    - Model names: Sabich (recommended in the apps), Jachnun; checkpoints PoC-1 to PoC-5.

@@ -22,7 +22,7 @@ If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
 `docs/maintainer-agent-notes.md`, section *model-cards*, for the maintainer setup (where each card's
 source lives, so a fix is not overwritten by the next release).
 
-Hebrish is Daniel Rosehill's one-person project (<https://hebrish.app>). Written
+Hebrish is Daniel Rosehill's personal project (<https://hebrish.app>). Written
 2026-10-22; the audit script was run against every Hebrish model and dataset that day (54 repos).
 
 ## The rules a card is held to

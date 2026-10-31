@@ -176,7 +176,7 @@ def audit(api, typ, rid, info, site, contact, check_links, save_dir):
         if l.startswith("#") and "FUTO" in l:
             add("naming", "'FUTO' in a heading", lineno(i), t)
         if WE.search(QUOTED.sub("", LINK.sub("", l))):
-            add("voice", "'we/our/us' (one-person project: write 'Daniel' or rephrase)", lineno(i), t)
+            add("voice", "'we/our/us' (personal project: write 'Daniel' or rephrase)", lineno(i), t)
     if "hebrish.app" not in text:
         add("links", "no link to hebrish.app")
 

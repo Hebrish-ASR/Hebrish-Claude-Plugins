@@ -56,7 +56,7 @@ while implementing someone's decision is `agent, implementing D-…`.
 - No private names, emails, phone numbers, machine or host names, account ids, internal URLs, or
   the contents of private repositories. A user is "user" unless they asked to be credited.
 - No credentials, ever, and no paraphrases of private notes.
-- Write plainly: absolute dates; no "we" or "our team" (Hebrish is a one-person project: "Daniel
+- Write plainly: absolute dates; no "we" or "our team" (Hebrish is a personal project: "Daniel
   decided").
 
 ## 5. Commit

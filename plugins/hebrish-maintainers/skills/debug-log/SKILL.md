@@ -66,7 +66,7 @@ The repository is public and read by strangers and agents opening it cold.
 - No personal names except "Daniel" (the maintainer); a user is "a user" unless they asked to be
   credited. No host names, IPs, account ids, internal URLs, or contents of private repositories.
 - No credentials or tokens, including in pasted command output. Redact `/home/<user>` paths to `~`.
-- Absolute dates. No "we": Hebrish is a one-person project.
+- Absolute dates. No "we": Hebrish is a personal project.
 
 ## 6. Commit
 

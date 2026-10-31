@@ -78,7 +78,7 @@ noise (2026-10-19: a 2.1-point held-out gain, about 6 of 293 hits, was judged no
 
 ## 1. Decide what to score (cost first)
 
-Hebrish is a one-person passion project: spend the fewest GPU minutes that answer the question.
+Hebrish is a personal passion project: spend the fewest GPU minutes that answer the question.
 
 - Score the checkpoint(s) asked about, **stock** (the candidate's own base model) and the **current
   release** on the same revision, so there is one comparable point. Not every published version.
