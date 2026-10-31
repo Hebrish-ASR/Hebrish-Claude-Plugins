@@ -6,9 +6,9 @@
   "preheader": "On-device dictation that writes the Hebrew words English speakers in Israel use.",
   "greeting": "Hi Alex,",
   "paragraphs": [
-    "I'm Daniel, an English speaker in Jerusalem. I fine-tuned Parakeet TDT 0.6B v2 so that English dictation writes the Hebrew words English speakers here mix in, such as kupat holim, in one consistent romanization.",
-    "It runs on-device through the free Hebrish app. The models, data and results are open: [hebrish.app](https://hebrish.app).",
-    "Would it be useful to you? I'd be glad to hear what you think."
+    "I'm Daniel, an English speaker in Jerusalem. I've been fine-tuning Parakeet TDT 0.6B v2 so it gets the Hebrew words we Anglos mix into English, like kupat holim, written properly.",
+    "It runs on your phone or computer in the free Hebrish app, and the models and data are all open: [hebrish.app](https://hebrish.app).",
+    "Thought it might be up your street. No pressure at all, but I'd be happy to hear what you think."
   ],
   "links_heading": "Links",
   "links": [

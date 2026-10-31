@@ -61,12 +61,10 @@ FOOTER_LINES = [
     # non-profit or non-commercial (licensing is being explored).
     "Hebrish is a personal project dedicated to improving speech-recognition accuracy for "
     "English-speaking immigrants in Israel and English speakers across the Jewish world.",
-    "This is a personal email from Daniel Rosehill about Hebrish. "
-    "Outreach emails may be written with AI assistance.",
-    "You have not been added to any mailing list. If you would rather not hear about Hebrish again, "
-    "reply with \"unsubscribe\" and you won't be contacted again.",
-    "Want occasional updates (new model versions, app releases, calls for recordings)? "
-    "[Subscribe to the newsletter](" + NEWSLETTER + ").",
+    # Informal and friendly, nothing that reads like a sales pitch (Daniel, 2026-10-31).
+    "Just a personal note from Daniel, not a mailing list. I sometimes use AI to help write these.",
+    "If you'd rather not hear about Hebrish again, reply and say so and I won't write again.",
+    "Want the odd update on new models and app releases? [Join the newsletter](" + NEWSLETTER + ").",
 ]
 
 LINK_RE = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
@@ -163,7 +161,7 @@ def render(brief):
         .replace("{{body_top}}", "32" if show_logo else "36")
         .replace("{{greeting}}", html.escape(brief["greeting"]))
         .replace("{{paragraphs}}", paragraphs)
-        .replace("{{signoff}}", html.escape(brief.get("signoff", "Best,")))
+        .replace("{{signoff}}", html.escape(brief.get("signoff", "Cheers,")))
         .replace("{{signoff_name}}", html.escape(signoff_name))
         .replace("{{sig_photo_cell}}", photo_cell)
         .replace("{{sig.name}}", html.escape(sig["name"]))
@@ -181,7 +179,7 @@ def render(brief):
     text = [brief["greeting"], ""]
     for p in brief["paragraphs"]:
         text += [inline_text(p), ""]
-    text += [brief.get("signoff", "Best,"), signoff_name, ""]
+    text += [brief.get("signoff", "Cheers,"), signoff_name, ""]
     for l in links:
         text.append(f'{l["label"]}: {l["href"]}')
     head = sig["name"] + (f', {sig["title"]}' if sig.get("title") else "")

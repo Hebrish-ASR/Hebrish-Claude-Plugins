@@ -58,7 +58,7 @@ address); through a Resend MCP server, pass `bcc: ["daniel@danielrosehill.co.il"
 
 Brief fields: `slug`, `to[]`, `signature` (`"project"` or `{"name", "title"?, "location"?,
 "photo"?, "links"?: [{"text","href"}]}`), `subject`, `preheader`, `greeting`, `paragraphs[]`
-(inline `[text](https://url)` links allowed), `signoff` (default `Best,`), `signoff_name`
+(inline `[text](https://url)` links allowed), `signoff` (default `Cheers,`), `signoff_name`
 (default the signature's first name), `logo` (default on for project, off for a representative),
 optional `links_heading` and `links[]` of `{label, href, text}`.
 
@@ -91,10 +91,13 @@ non-commercial.
      (each term is `{"t": term, "d": domain, "m": meaning, "n": recordings}`).
    - No AI mention in the body. The fixed footer (below) already says outreach may be written
      with AI assistance.
-2. **Style.** Short sentences (under about 15 words), 3 to 8 sentences. First sentence says why
-   you are writing. First person singular. Respectful, not deferential. Not promotional: no
-   superlatives, no "excited to", no emojis; the link does the selling. One clear ask near the
-   end (try it, pass it on, or send words it gets wrong).
+2. **Style.** Informal and friendly, like a note to someone you'd happily chat with (Daniel,
+   2026-10-31): it must not read like a sales pitch or a cold marketing email. Contractions,
+   plain words, short sentences (under about 15 words), 3 to 8 sentences. First sentence says
+   why you are writing. First person singular. No superlatives, no "excited to", no
+   "I'd love to hop on a call", no emojis; the link does the work. One easy ask near the end
+   (have a look, pass it on, or tell me words it gets wrong), phrased as an offer, not a push.
+   Sign-off defaults to "Cheers,".
    - For an organisation, the usual shape is: who is writing (one line); the problem in their
      words, English sentences with Hebrew words in them, with 2 to 4 terms from their domain;
      what exists (an open model plus free apps for Android, Ubuntu and Windows); links
