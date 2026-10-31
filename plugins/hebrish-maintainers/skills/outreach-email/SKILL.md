@@ -78,6 +78,31 @@ name can be found (look on the organisation's site, team page or past correspond
 address the team by name ("Hi Mozilla Data Collective team,"). Never a bare "Hello,", "Hi,",
 "Hi there," or "To whom it may concern"; `render.py` refuses them.
 
+## Finding the address (lists of organisations)
+
+When the user gives a list of sites or organisations, find one address per organisation, in
+this order, and stop at the first hit (Daniel, 2026-10-31):
+
+1. **The site itself:** homepage footer, contact and about pages, then the privacy policy,
+   terms and accessibility pages (these often list an address when nothing else does). If the
+   page is a JavaScript shell, fetch it with curl and search the bundle for `mailto` or `@`.
+2. **An email finder** such as Hunter.io, if you have one: a free count first, then a domain
+   search. Use an address only if its sources include the organisation's own pages.
+3. **WHOIS** (`whois <domain>`): rarely gives an address now (most are redacted or a
+   registrar proxy), but the registrant country tells you where the organisation is.
+4. **A contact form** on the site is fine to submit with the same text as the plain-text email.
+
+Rules:
+- **Skip organisations based in the US** (Daniel, 2026-10-31). Treat a WHOIS registrant
+  country of US as US unless the site says otherwise; a registrar privacy proxy (Squarespace,
+  GoDaddy "Registration Private") shows the proxy's country, so say when that's the only
+  evidence.
+- Never guess an address (no `info@<domain>` because it's usual). An address taken from a
+  different product by the same maker, or from a parent organisation, is unconfirmed: list it,
+  don't send to it unless the user says so.
+- Report every organisation at the end: sent (address, email id), form submitted, skipped as
+  US, or no contact found (with the routes tried).
+
 ## Steps
 
 1. **Facts.** Take every claim from the live site, not from memory or an old draft:
@@ -108,6 +133,11 @@ address the team by name ("Hi Mozilla Data Collective team,"). Never a bare "Hel
      words, English sentences with Hebrew words in them, with 2 to 4 terms from their domain;
      what exists (an open model plus free apps for Android, Ubuntu and Windows); links
      (`/download`, `/demo`, and for technical readers `/models` and `/dataset`); one ask.
+   - **Links box on every email** (Daniel, 2026-10-31): Models (`/models`), Datasets
+     (`/datasets`), Benchmarks (`/benchmarks`), the main model on Hugging Face, the browser demo
+     and the app downloads. Add the Hugging Face dataset closest to the recipient's field when
+     one exists (for example `Hebrish/Jewish-Religious-Terminology-Sentences` for Torah and
+     Jewish-learning products). Check each link returns 200 before sending.
 3. **Brief.** Write the brief JSON outside any repository (it holds recipients' addresses),
    for example in a scratch or temp directory. Set `signature`:
    - `"project"` only on the maintainer-access path;
@@ -115,7 +145,8 @@ address the team by name ("Hi Mozilla Data Collective team,"). Never a bare "Hel
 4. **Render.** `python3 "${CLAUDE_PLUGIN_ROOT}/skills/outreach-email/scripts/render.py" brief.json OUTDIR`.
 5. **Review.** Show the subject, recipients and the `.txt` body in chat. "Draft" or "prepare"
    stops here. A cold email to someone not written to before: wait for an explicit yes even if
-   the user said "send".
+   the user said "send", unless the maintainer has said no review is needed ("just send them",
+   "no need for me to review"); then send without showing drafts.
 6. **Send.**
    - *Maintainer access.* Send a test copy to the user's own address first for any new kind of
      message, and check it renders. Then one email per recipient (never many people in one
