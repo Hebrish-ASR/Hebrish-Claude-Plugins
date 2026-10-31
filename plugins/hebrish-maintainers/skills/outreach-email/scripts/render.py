@@ -52,6 +52,18 @@ PROJECT_SIGNATURE = {
     ],
 }
 
+# Fixed footer on every outreach email (Daniel, 2026-10-31: one professional boilerplate, never
+# rewritten per message). Change the wording here only.
+NEWSLETTER = "https://hebrish.app/#foot-email"
+FOOTER_LINES = [
+    "This is a personal email from Daniel Rosehill about Hebrish, a one-person project. "
+    "Outreach emails may be written with AI assistance.",
+    "You have not been added to any mailing list. If you would rather not hear about Hebrish again, "
+    "reply with \"unsubscribe\" and you won't be contacted again.",
+    "Want occasional updates (new model versions, app releases, calls for recordings)? "
+    "[Subscribe to the newsletter](" + NEWSLETTER + ").",
+]
+
 LINK_RE = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
 
 
@@ -127,6 +139,13 @@ def render(brief):
       </td></tr></table>
     </td></tr>"""
 
+    foot_p = f'<p style="margin:0 0 8px;font-size:12px;line-height:1.55;color:{C["muted"]};">{{}}</p>'
+    footer = f"""
+    <tr><td style="padding:18px 40px 22px;background:{C["band"]};font-family:{FONT};border-top:1px solid {C["line"]};">
+      {"".join(foot_p.format(inline_html(l)) for l in FOOTER_LINES)}
+      <p style="margin:6px 0 0;font-size:12px;color:{C["muted"]};"><a href="https://hebrish.app" style="color:{C["accent"]};text-decoration:none;font-weight:600;">hebrish.app</a> &middot; Jerusalem, Israel &middot; info@hebrish.app</p>
+    </td></tr>"""
+
     out_html = (TEMPLATE.read_text(encoding="utf-8")
         .replace("{{subject}}", html.escape(brief["subject"]))
         .replace("{{preheader}}", html.escape(brief.get("preheader", "")))
@@ -141,6 +160,7 @@ def render(brief):
         .replace("{{sig_subline}}", subline)
         .replace("{{sig_links}}", sig_links)
         .replace("{{links_box}}", links_box)
+        .replace("{{footer}}", footer)
         .replace("{{font}}", FONT).replace("{{serif}}", SERIF))
     for k, v in C.items():
         out_html = out_html.replace("{{c." + k + "}}", v)
@@ -160,6 +180,10 @@ def render(brief):
         text.append(sig["location"])
     if sig_link_list:
         text.append(" | ".join(l["href"] for l in sig_link_list))
+    text += ["", "-" * 40]
+    for l in FOOTER_LINES:
+        text += [inline_text(l), ""]
+    text.append("hebrish.app | Jerusalem, Israel | info@hebrish.app")
     return out_html, "\n".join(text).strip() + "\n", is_project
 
 

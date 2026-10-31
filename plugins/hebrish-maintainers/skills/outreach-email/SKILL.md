@@ -42,6 +42,15 @@ is unset, clone https://github.com/Hebrish-ASR/Hebrish-Claude-Plugins and use
 | `examples/project.json` | Brief for a project email (`"signature": "project"`). |
 | `examples/representative.json` | Brief for an authorised representative signing with their own name. |
 
+Fixed footer (Daniel, 2026-10-31): every email ends with the same boilerplate, defined once in
+`scripts/render.py` (`FOOTER_LINES`, `NEWSLETTER`) and rendered in the brand band colour under the
+signature and links. It says the email is personal and may be written with AI assistance, that the
+recipient is on no mailing list and can reply "unsubscribe" to never be contacted again, and links
+the newsletter signup (`https://hebrish.app/#foot-email`, the site footer form; Buttondown,
+double opt-in). Briefs cannot change or drop it. Change the wording only in `render.py`, and keep
+it in step with `/brand` if the outreach template there is updated. Someone who replies
+"unsubscribe" is not emailed again: note it where the outreach is tracked.
+
 Brief fields: `slug`, `to[]`, `signature` (`"project"` or `{"name", "title"?, "location"?,
 "photo"?, "links"?: [{"text","href"}]}`), `subject`, `preheader`, `greeting`, `paragraphs[]`
 (inline `[text](https://url)` links allowed), `signoff` (default `Best,`), `signoff_name`
@@ -68,7 +77,8 @@ drop SVG). Colours are the light set of the Hebrish brand (https://hebrish.app/b
      Example terms must exist in the lexicon: check
      `curl -s https://hebrish.app/data/lexicon.json | python3 -c "import json,sys; t={x['t'].lower() for x in json.load(sys.stdin)['terms']}; print('makolet' in t)"`
      (each term is `{"t": term, "d": domain, "m": meaning, "n": recordings}`).
-   - No AI mention unless the user asks for one.
+   - No AI mention in the body. The fixed footer (below) already says outreach may be written
+     with AI assistance.
 2. **Style.** Short sentences (under about 15 words), 3 to 8 sentences. First sentence says why
    you are writing. First person singular. Respectful, not deferential. Not promotional: no
    superlatives, no "excited to", no emojis; the link does the selling. One clear ask near the
