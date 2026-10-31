@@ -77,7 +77,7 @@ non-commercial.
 1. **Facts.** Take every claim from the live site, not from memory or an old draft:
    https://hebrish.app/llms.txt (key facts and current numbers), `/benchmarks`, `/changelog`,
    `/download`. Rules:
-   - Hebrish is Daniel Rosehill's personal project (say "personal project", never "personal project"). Never "we" or "the team".
+   - Hebrish is Daniel Rosehill's personal project (say "personal project", never "one-person project"). Never "we" or "the team".
    - Numbers exactly as published, never rounded or invented. Targets on `/roadmap` are goals,
      not results. Say which benchmark a number is from if you quote one.
    - Model names: Sabich (recommended in the apps), Jachnun; checkpoints PoC-1 to PoC-5.
