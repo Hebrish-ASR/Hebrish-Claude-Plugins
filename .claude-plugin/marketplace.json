@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "Claude Code plugins for Hebrish (hebrish.app), on-device English dictation that writes Hebrew words correctly. Skills for contributors: app development, training data, the website, and outreach.",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "plugins": [
     {
@@ -16,8 +16,8 @@
         "source": "github",
         "repo": "Hebrish-ASR/Hebrish-Agent-Skills"
       },
-      "description": "For Hebrish users: install, set up and troubleshoot the Hebrish dictation app on Linux (Ubuntu). The same skills are published in the open Agent Skills format.",
-      "version": "1.1.0",
+      "description": "For Hebrish users: install, set up and troubleshoot the Hebrish dictation app on Linux (Ubuntu), and transcribe audio files on the computer through the desktop app's local API. The same skills are published in the open Agent Skills format.",
+      "version": "1.2.0",
       "author": {
         "name": "Daniel Rosehill",
         "url": "https://hebrish.app"
@@ -27,12 +27,14 @@
       "tags": [
         "hebrish",
         "install",
-        "linux"
+        "linux",
+        "transcription"
       ],
       "strict": false,
       "skills": [
         "./skills/install-hebrish-linux",
-        "./skills/troubleshoot-hebrish-linux"
+        "./skills/troubleshoot-hebrish-linux",
+        "./skills/transcribe-with-hebrish"
       ]
     },
     {

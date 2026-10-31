@@ -17,7 +17,7 @@ In Claude Code:
 
 | Plugin | For | Skills |
 | --- | --- | --- |
-| `hebrish-setup` | People using the app: install and fix it on Linux | install, troubleshoot (from [Hebrish-Agent-Skills](https://github.com/Hebrish-ASR/Hebrish-Agent-Skills)) |
+| `hebrish-setup` | People using the app: install and fix it on Linux | install, troubleshoot, transcribe with the local API (from [Hebrish-Agent-Skills](https://github.com/Hebrish-ASR/Hebrish-Agent-Skills)) |
 | [`hebrish-maintainers`](plugins/hebrish-maintainers/) | Anyone working on Hebrish, despite the name | app reviews per platform, feature parity, Android release, planning (requests, sprints, decision log); training data (vocabulary gaps, writing, checking and submitting sentences); website changes and brand assets; outreach; Hugging Face collections, model cards and access requests |
 
 ## What you need
