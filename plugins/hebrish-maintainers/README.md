@@ -87,9 +87,6 @@ Sending as the project needs its own accounts (Resend for info@hebrish.app, Butt
 
 | Skill | What it does | Access |
 | --- | --- | --- |
-| [`outreach-email`](skills/outreach-email/SKILL.md) | Writes an email about Hebrish in the branded HTML template plus plain text (`scripts/render.py`); sends from `info@hebrish.app` via Resend (`scripts/send_resend.py`). | Maintainer / authorised: Resend API key for the hebrish.app domain to send as the project. |
-| [`community-fyi`](skills/community-fyi/SKILL.md) | Drafts a short FYI post for an Israeli AI, tech or olim community, matched to the group's channel and rules. | Maintainer / authorised: drafts; you post it yourself. |
-| [`newsletter`](skills/newsletter/SKILL.md) | Drafts a newsletter update (release, new model, call for recordings); checks subscribers and sends via Buttondown. | Maintainer / authorised: Buttondown API key for the Hebrish newsletter. |
 
 Scripts are Python 3, standard library only. Paths in the skills use `${CLAUDE_PLUGIN_ROOT}`;
 if it is unset, clone https://github.com/Hebrish-ASR/Hebrish-Claude-Plugins and use

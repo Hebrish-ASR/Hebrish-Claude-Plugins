@@ -17,8 +17,8 @@ description: Keep Hebrish's written record current after a model release or a ne
   source of every number. Attach charts to the issue. Daniel applies it.
 - **Maintainer access:** write access to the website's private repository (site pages, `data/`,
   `img/charts/`, `whitepaper/`), to the Hugging Face `Hebrish` org (model cards) and to the benchmark
-  repo. Sending a newsletter or community message needs the project's own accounts (see the skills
-  named in step 4). If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
+  repo. Sending a newsletter, community message or email is done by the maintainer with
+  private tooling (step 5). If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
   `docs/maintainer-agent-notes.md`, section *documentation*, for the maintainer setup.
 
 Hebrish is Daniel Rosehill's personal project: write "Daniel", never "we"/"our".
@@ -140,9 +140,8 @@ Draft each piece from the same numbers; don't let wording drift between them.
    (its `docs/figures/`), and a dated round with `scripts/snapshot_run.py --title "Round N: ..." --notes "..."`.
    Outside contributors open a pull request with the result file (see the `evals` skill).
    Never edit a committed round.
-5. **Newsletter, communities, people**: hand off with the written summary and links. `newsletter`
-   (subscribers), `community-fyi` (Israeli AI and Anglo tech communities), `outreach-email` (one
-   person or organisation). Those skills hold the access rules and templates; this skill only
+5. **Newsletter, communities, people**: hand off the written summary and links to the maintainer,
+   who sends the newsletter, community posts and emails with private tooling. This skill only
    supplies the text.
 
 ## 5. Charts from previously run benchmarks

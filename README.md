@@ -25,9 +25,10 @@ In Claude Code:
 Every skill starts with an **Access** section. The app development and training-data skills
 work with nothing but a clone of a public repository; without push access they end in a pull
 request or an issue. Releases, the website's own repository and the Hugging Face organisation
-need the project's access. The outreach skills (email, community posts, newsletter) are only
-for the maintainer and people Daniel has authorised to represent the project. They check
-first, and stop for anyone else.
+need the project's access. Outreach (emails, community posts, the newsletter) is handled by
+the maintainer's private tooling and is not part of this marketplace (since 2026-10-31). To
+suggest a person or group Hebrish should contact, open an issue titled "Outreach: <who>" on
+Hebrish-ASR/Hebrish-App or use https://hebrish.app/contact?topic=involved.
 
 ## Contributing
 
