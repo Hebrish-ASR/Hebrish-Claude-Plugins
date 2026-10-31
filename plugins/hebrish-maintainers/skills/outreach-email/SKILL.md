@@ -93,10 +93,13 @@ this order, and stop at the first hit (Daniel, 2026-10-31):
 4. **A contact form** on the site is fine to submit with the same text as the plain-text email.
 
 Rules:
-- **Skip organisations based in the US** (Daniel, 2026-10-31). Treat a WHOIS registrant
-  country of US as US unless the site says otherwise; a registrar privacy proxy (Squarespace,
-  GoDaddy "Registration Private") shows the proxy's country, so say when that's the only
-  evidence.
+- **Skip organisations based in the US** (Daniel, 2026-10-31): the site, its legal pages or
+  press say so, or WHOIS shows a US registrant that is not a privacy proxy (Cloudflare and
+  Namecheap show the owner's country). A proxy (Domains By Proxy, GoDaddy "Registration
+  Private", Squarespace, name.com "Domain Protection Services") shows its own US address, so
+  with only that the country is unknown: send, and say so in the report.
+- Check the recipient domain has MX records (`dig +short MX <domain>`) before sending; no MX
+  means it will bounce, so treat it as no contact.
 - Never guess an address (no `info@<domain>` because it's usual). An address taken from a
   different product by the same maker, or from a parent organisation, is unconfirmed: list it,
   don't send to it unless the user says so.

@@ -41,7 +41,7 @@
       "name": "hebrish-maintainers",
       "source": "./plugins/hebrish-maintainers",
       "description": "Every skill for working on Hebrish: app reviews and releases, feature parity and planning, training-data contributions (vocabulary and sentences), website changes and brand assets, outreach, documentation and evaluation (white paper, benchmark pages, charts, running evals), and the Hugging Face organisation (audit, collections, model cards, access requests). Each skill states its access: many need only public repositories; project accounts are needed for Hugging Face, releases, the website repo and outreach.",
-      "version": "0.8.5",
+      "version": "0.8.6",
       "author": {
         "name": "Daniel Rosehill",
         "url": "https://hebrish.app"
