@@ -82,9 +82,11 @@ says the sprint is done). If it is not met, stop after step 2: commit, push, and
 - If `android/docs/maintaining.md` has a section titled "after X.Y.Z", rename it to the new version.
 - **Write the hebrish.app changelog entry first** (step 5), before the tag: the apps' What's new
   list is baked from that page at tag time (since 2026-10-25). `release-tag.sh` runs
-  `scripts/bake_updates.py`, which writes the changelog's last 20 entries up to today into
-  `shared/updates.json` and `desktop/hebrish/data/updates.json`, and prints a note if the newest
-  entry doesn't name the version. If the website checkout isn't next to the repo it fetches
+  `scripts/bake_updates.py`, which writes each app's last 20 entries up to today, picked by the
+  entries' `data-platforms` (2026-10-31), into `shared/updates-android.json` (Android entries) and
+  `desktop/hebrish/data/updates.json` (Desktop and Site), and prints a note if the newest entry
+  doesn't name the version. Give the new changelog entry `data-platforms="android"` (or it is
+  filed by its tag). If the website checkout isn't next to the repo it fetches
   `https://hebrish.app/changelog`, so deploy the entry first; `SKIP_UPDATES_BAKE=1` keeps the
   committed list.
 - Commit the code and docs, then let the script set the version and tag (it bumps `versionName`
