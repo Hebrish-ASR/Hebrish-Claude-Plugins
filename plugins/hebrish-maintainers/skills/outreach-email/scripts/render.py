@@ -152,9 +152,9 @@ def render(brief):
         for t, h in FOOTER_LINKS)
     footer = f"""
     <tr><td style="padding:18px 40px 22px;background:{C["band"]};font-family:{FONT};border-top:1px solid {C["line"]};">
+      <p style="margin:0 0 12px;font-size:13px;line-height:1.6;">{footer_links}</p>
       {"".join(foot_p.format(inline_html(l)) for l in FOOTER_LINES)}
       <p style="margin:6px 0 0;font-size:12px;color:{C["muted"]};"><a href="https://hebrish.app" style="color:{C["accent"]};text-decoration:none;font-weight:600;">hebrish.app</a> &middot; Jerusalem, Israel &middot; info@hebrish.app</p>
-      <p style="margin:0 0 12px;font-size:13px;line-height:1.6;">{footer_links}</p>
     </td></tr>"""
 
     out_html = (TEMPLATE.read_text(encoding="utf-8")
