@@ -55,6 +55,12 @@ PROJECT_SIGNATURE = {
 # Fixed footer on every outreach email (Daniel, 2026-10-31: one professional boilerplate, never
 # rewritten per message). Change the wording here only.
 NEWSLETTER = "https://hebrish.app/#foot-email"
+FOOTER_LINKS = [
+    ("About", "https://hebrish.app/about"),
+    ("Models", "https://hebrish.app/models"),
+    ("Datasets", "https://hebrish.app/datasets"),
+    ("Benchmarks", "https://hebrish.app/benchmarks"),
+]
 FOOTER_LINES = [
     "This is a personal email from Daniel Rosehill about Hebrish, a one-person project. "
     "Outreach emails may be written with AI assistance.",
@@ -140,10 +146,15 @@ def render(brief):
     </td></tr>"""
 
     foot_p = f'<p style="margin:0 0 8px;font-size:12px;line-height:1.55;color:{C["muted"]};">{{}}</p>'
+    fl_sep = f'<span style="color:{C["muted"]};">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>'
+    footer_links = fl_sep.join(
+        f'<a href="{h}" style="color:{C["accent"]};text-decoration:none;font-weight:600;">{t}</a>'
+        for t, h in FOOTER_LINKS)
     footer = f"""
     <tr><td style="padding:18px 40px 22px;background:{C["band"]};font-family:{FONT};border-top:1px solid {C["line"]};">
       {"".join(foot_p.format(inline_html(l)) for l in FOOTER_LINES)}
       <p style="margin:6px 0 0;font-size:12px;color:{C["muted"]};"><a href="https://hebrish.app" style="color:{C["accent"]};text-decoration:none;font-weight:600;">hebrish.app</a> &middot; Jerusalem, Israel &middot; info@hebrish.app</p>
+      <p style="margin:0 0 12px;font-size:13px;line-height:1.6;">{footer_links}</p>
     </td></tr>"""
 
     out_html = (TEMPLATE.read_text(encoding="utf-8")
@@ -180,7 +191,7 @@ def render(brief):
         text.append(sig["location"])
     if sig_link_list:
         text.append(" | ".join(l["href"] for l in sig_link_list))
-    text += ["", "-" * 40]
+    text += ["", "-" * 40, " | ".join(f"{t}: {h}" for t, h in FOOTER_LINKS), ""]
     for l in FOOTER_LINES:
         text += [inline_text(l), ""]
     text.append("hebrish.app | Jerusalem, Israel | info@hebrish.app")

@@ -47,9 +47,14 @@ Fixed footer (Daniel, 2026-10-31): every email ends with the same boilerplate, d
 signature and links. It says the email is personal and may be written with AI assistance, that the
 recipient is on no mailing list and can reply "unsubscribe" to never be contacted again, and links
 the newsletter signup (`https://hebrish.app/#foot-email`, the site footer form; Buttondown,
-double opt-in). Briefs cannot change or drop it. Change the wording only in `render.py`, and keep
+double opt-in), and ends with quick links to About, Models, Datasets and Benchmarks
+(`FOOTER_LINKS`). Briefs cannot change or drop it. Change the wording only in `render.py`, and keep
 it in step with `/brand` if the outreach template there is updated. Someone who replies
 "unsubscribe" is not emailed again: note it where the outreach is tracked.
+
+BCC (Daniel, 2026-10-31): every project send BCCs the maintainer, `daniel@danielrosehill.co.il`.
+`send_resend.py` adds it by default (`--no-maintainer-bcc` only for the test copy to that
+address); through a Resend MCP server, pass `bcc: ["daniel@danielrosehill.co.il"]` yourself.
 
 Brief fields: `slug`, `to[]`, `signature` (`"project"` or `{"name", "title"?, "location"?,
 "photo"?, "links"?: [{"text","href"}]}`), `subject`, `preheader`, `greeting`, `paragraphs[]`

@@ -24,6 +24,9 @@ from pathlib import Path
 API = "https://api.resend.com/emails"
 
 
+MAINTAINER_BCC = "daniel@danielrosehill.co.il"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--to", required=True, help="one recipient address")
@@ -34,6 +37,8 @@ def main():
     ap.add_argument("--reply-to", default="info@hebrish.app")
     ap.add_argument("--cc", action="append", default=[])
     ap.add_argument("--bcc", action="append", default=[])
+    ap.add_argument("--no-maintainer-bcc", action="store_true",
+                    help="skip the standard BCC to the maintainer (only for the test copy to him)")
     ap.add_argument("--tag", default="kind=outreach", help="name=value")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
@@ -52,8 +57,12 @@ def main():
     }
     if a.cc:
         payload["cc"] = a.cc
-    if a.bcc:
-        payload["bcc"] = a.bcc
+    # Standard practice (Daniel, 2026-10-31): the maintainer is BCC'd on every outreach email.
+    bcc = list(a.bcc)
+    if not a.no_maintainer_bcc and MAINTAINER_BCC not in bcc and a.to != MAINTAINER_BCC:
+        bcc.append(MAINTAINER_BCC)
+    if bcc:
+        payload["bcc"] = bcc
     if "&lt;" in payload["html"][:200]:
         raise SystemExit("html looks entity-escaped; pass the raw rendered file")
 
