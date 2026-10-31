@@ -10,7 +10,7 @@ personal English-Hebrew dictation project, in one plugin.
 
 Despite the name, many skills are open to anyone: each one starts with an **Access** section
 saying who can use it. The app development and training-data skills work from public
-repositories. The Hugging Face, release, website-repo and outreach skills need the project's
+repositories. The Hugging Face, release and website-repo skills need the project's
 own access (or Daniel's authorisation to represent the project), and say so before doing anything.
 
 ## App development
@@ -75,22 +75,11 @@ private; anyone can still draft changes and hand them in as an issue on
 | `website-change` | Propose or make a change to hebrish.app following the page rules (sourced claims, model names, romanization, voice, generated nav/footer, `/he` mirror) | Anyone drafts an issue; editing and pushing: maintainer |
 | `check-page-claims` | Check a page's numbers, names and links against the public data files, model cards and benchmark repo, and report mismatches | Anyone (a few sources are private: maintainer) |
 
-## Outreach (maintainer and authorised representatives only)
-Skills for telling other people about [Hebrish](https://hebrish.app), Daniel Rosehill's
-personal English-Hebrew dictation project.
+## Outreach
 
-
-**For the maintainer and people Daniel has authorised to represent the project only.** Each
-skill asks first and stops for anyone else. Want to suggest someone the project should contact?
-Open an issue titled "Outreach: <who>" on [Hebrish-App](https://github.com/Hebrish-ASR/Hebrish-App).
-Sending as the project needs its own accounts (Resend for info@hebrish.app, Buttondown).
-
-| Skill | What it does | Access |
-| --- | --- | --- |
-
-Scripts are Python 3, standard library only. Paths in the skills use `${CLAUDE_PLUGIN_ROOT}`;
-if it is unset, clone https://github.com/Hebrish-ASR/Hebrish-Claude-Plugins and use
-`plugins/hebrish-maintainers/` inside it. Rules for writing skills here: [`AUTHORING.md`](../../AUTHORING.md).
+Outreach (emails, community posts, the newsletter) is done by the maintainer with private
+tooling, not this plugin (since 2026-10-31). Want to suggest someone the project should
+contact? Open an issue titled "Outreach: <who>" on [Hebrish-App](https://github.com/Hebrish-ASR/Hebrish-App).
 
 ## Hugging Face (maintainer access)
 Skills for the [Hebrish organisation on Hugging Face](https://huggingface.co/Hebrish): its collections,
