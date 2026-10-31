@@ -95,7 +95,16 @@ def resolve_signature(brief):
                      'or {"name": "Your Name", ...} (everyone else)')
 
 
+GENERIC_GREETING = re.compile(
+    r"^\s*(hello|hi|hey|dear|greetings|hi there|hello there|good (morning|afternoon|evening)"
+    r"|to whom it may concern|dear sir or madam|dear sir/madam)\s*[,!.]?\s*$", re.I)
+
+
 def render(brief):
+    # Every email is addressed to someone (Daniel, 2026-10-31): a person, or the team by name.
+    if GENERIC_GREETING.match(brief["greeting"]):
+        raise SystemExit(f'greeting "{brief["greeting"]}" addresses no one: name the person, '
+                         'or the team ("Hi <Organisation> team,")')
     sig, is_project = resolve_signature(brief)
     show_logo = brief.get("logo", is_project)
     signoff_name = brief.get("signoff_name") or sig["name"].split()[0]

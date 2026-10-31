@@ -72,6 +72,12 @@ Datasets, Benchmarks). The footer opens with the mission line (first of `FOOTER_
 `render.py`). Wording: "personal project", never "one-person project", non-profit or
 non-commercial.
 
+Always address someone (Daniel, 2026-10-31, after a blank "Hello," went to Mozilla Data
+Collective): the greeting names a person ("Hi Jan,"). If the address is a shared inbox and no
+name can be found (look on the organisation's site, team page or past correspondence first),
+address the team by name ("Hi Mozilla Data Collective team,"). Never a bare "Hello,", "Hi,",
+"Hi there," or "To whom it may concern"; `render.py` refuses them.
+
 ## Steps
 
 1. **Facts.** Take every claim from the live site, not from memory or an old draft:
