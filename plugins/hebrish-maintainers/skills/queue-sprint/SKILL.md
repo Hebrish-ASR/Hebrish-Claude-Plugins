@@ -1,6 +1,6 @@
 ---
 name: queue-sprint
-description: Queue a batch of Hebrish app feature requests, fixes and ideas into the per-platform sprints in planning/backlog.md of Hebrish-ASR/Hebrish-App (desktop = Ubuntu + Windows; Android), logging each in planning/requests.md and adding parity follow-ups. Use when several asks arrive at once, including as voice notes in planning/voice-notes/inbox/ ("queue this for the sprint", "add these to the Android sprint", "for the next Ubuntu version…", "the other thing I'd queue is…"), often in the middle of other work, and they should be recorded rather than built right now.
+description: Queue a batch of Hebrish app feature requests, fixes and ideas into the per-platform sprints in planning/backlog.md of Hebrish-ASR/Hebrish-App (desktop = Ubuntu + Windows; Android), logging each in planning/requests.md and adding parity follow-ups. Use when several asks arrive at once, including as voice notes ("queue this for the sprint", "add these to the Android sprint", "for the next Ubuntu version…", "the other thing I'd queue is…"), often in the middle of other work, and they should be recorded rather than built right now.
 ---
 
 # Queue a batch into the sprints
@@ -23,10 +23,9 @@ users unnamed unless they ask for credit). `planning/README.md` explains the fil
 
 ## 0. Voice notes
 
-If the batch is audio, or `planning/voice-notes/inbox/` has files in it ("process my voice
-notes", "I dropped a note in the inbox"), follow `planning/voice-notes/README.md`: transcribe
-each note, file the audio and transcript under `YYYY-MM/`, then queue its asks with the steps
-below, with each request's "From" linking the transcript. One note can hold several asks.
+If the batch is a voice note ("process my voice notes"), follow `planning/voice-notes/README.md`:
+raw transcripts and audio are not kept in the repository. Queue its asks with the steps below,
+with each request's "From" linking the published episode page. One note can hold several asks.
 
 ## 1. Split the batch
 

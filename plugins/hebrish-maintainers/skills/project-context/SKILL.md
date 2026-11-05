@@ -31,7 +31,7 @@ If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
 | Unsettled questions | `project-context/open-questions.md` |
 | App requests, sprints, ideas | Hebrish-App `planning/requests.md`, `planning/backlog.md` (skill `queue-sprint`) |
 | App decisions | Hebrish-App `planning/decisions.md` (skill `log-decision`) |
-| Sources: voice notes, audio and transcript | Hebrish-App `planning/voice-notes/` |
+| Sources: voice notes, written up as podcast episodes (no raw transcripts are published) | <https://hebrish.app/updates/podcast>; index in Hebrish-App `planning/voice-notes/` |
 
 ## Reading
 
@@ -62,7 +62,7 @@ If you have access to the private Hebrish-ASR/Hebrish-Mgmt repository, read
 
 ## A new source
 
-A voice note goes into Hebrish-App `planning/voice-notes/inbox/` and is processed by
-`queue-sprint` (step 0): transcript filed, app asks queued. Then mine what is not app work into this
+A voice note is published as a podcast episode and its app asks are queued with
+`queue-sprint` (step 0). Then mine what is not app work into this
 folder: project facts, model and data reasoning, product principles, tasks outside the apps,
 project decisions, open questions. Each with its timestamp.
