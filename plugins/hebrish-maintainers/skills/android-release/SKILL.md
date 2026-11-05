@@ -106,6 +106,12 @@ gh release view android-vX.Y.Z -R Hebrish-ASR/Hebrish-App --json assets -q '.ass
 
 ## 4. CDN, latest.json and F-Droid (maintainer)
 
+Since 2026-11-05 the `cdn` job in `.github/workflows/android.yml` does the CDN and `latest.json` steps
+below on every `android-v*` tag, once `apk` and `repro` pass, through `scripts/publish-android-cdn.sh`
+(needs repo secrets `HEBRISH_CDN_R2_ACCESS_KEY_ID` and `HEBRISH_CDN_R2_SECRET_ACCESS_KEY`). Check the
+job is green and verify as below. If it failed, run the script by hand under `with-secrets`:
+`scripts/publish-android-cdn.sh Hebrish-vX.Y.Z.apk vX.Y.Z`.
+
 Since 2026-10-21 the CDN holds **one stable APK, overwritten on every release**; old APKs stay on
 the GitHub releases only.
 
