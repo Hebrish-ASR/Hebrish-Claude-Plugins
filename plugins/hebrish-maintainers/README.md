@@ -27,6 +27,7 @@ accounts, it gives the route for everyone else (usually a pull request or an iss
 | `review-windows-app` | Review the desktop app on Windows without a Windows machine: CI job, freeze completeness, portability, the released zip | Anyone (dispatching CI on the main repo needs write access; use a fork otherwise) |
 | `check-feature-parity` | Compare Android, Ubuntu and Windows feature by feature and released vs `main`; update `docs/feature-parity.json` | Anyone (commit via pull request without push access) |
 | `android-release` | Take a feedback round to a published APK: implement, document, tag, CDN, F-Droid, changelog | Maintainer for the release steps; contributors stop at a pull request |
+| `android-screenshot-iteration` | Take a phone screenshot and requests to a change seen working on a device: tie it to the code, measure, fix, test build without publishing | Anyone to a pull request; maintainer for the signed test build |
 | `log-decision` | Add an entry to the public decision log, `planning/decisions.md` | Anyone (via pull request without push access) |
 | `debug-log` | Write up a diagnosed bug in `docs/debug-log/` (symptom, cause, how it was found, what was ruled out, fix, what is verified) | Anyone (via pull request without push access) |
 | `queue-sprint` | Queue a batch of requests into the per-platform sprints in `planning/backlog.md` | Anyone (issue or pull request without push access) |
