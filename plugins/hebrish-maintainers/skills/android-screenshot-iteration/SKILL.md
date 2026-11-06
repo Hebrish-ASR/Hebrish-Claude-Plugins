@@ -88,6 +88,15 @@ install, change this", or a pasted screenshot of the app with requests.
 
 ## Gotchas
 
+- Wireless debugging drops and changes port. If `adb devices` is empty, pair with a QR code: render
+  `WIFI:T:ADB;S:<name>;P:<6 digits>;;` with `qrencode`, have the phone scan it under Wireless
+  debugging, then find the ports with `nmap -Pn -p 30000-49999 --open <phone>`: `adb pair` on the
+  new port, `adb connect` on the one that answers. mDNS may find nothing.
+- Never send `adb shell input` taps without a fresh screenshot and a check of `mCurrentFocus`. The
+  user may be using the phone, and a tap meant for a key lands on whatever is open. A locked phone
+  captures as a black image: `isKeyguardShowing` tells you.
+- `gh run download -D .` fails with "would result in path traversal": give it a full path.
+
 - `targetSdk` 35+ makes every window edge to edge, the IME included, so anything at the bottom of a
   view needs the `navigationBars` inset. Keys under the bar are this, not a height problem.
 - Keep the keyboard one height in every state, and no taller than it was unless the user agrees.
