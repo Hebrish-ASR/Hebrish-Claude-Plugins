@@ -6,8 +6,8 @@
     "url": "https://hebrish.app"
   },
   "metadata": {
-    "description": "Claude Code plugins for Hebrish (hebrish.app), on-device English dictation that writes Hebrew words correctly. Skills for contributors: app development, training data, and the website.",
-    "version": "0.1.2"
+    "description": "Claude Code plugins for Hebrish (hebrish.app), on-device English dictation that writes Hebrew words correctly: install, set up and troubleshoot the app, and transcribe through its local API.",
+    "version": "0.2.0"
   },
   "plugins": [
     {
@@ -35,23 +35,6 @@
         "./skills/install-hebrish-linux",
         "./skills/troubleshoot-hebrish-linux",
         "./skills/transcribe-with-hebrish"
-      ]
-    },
-    {
-      "name": "hebrish-maintainers",
-      "source": "./plugins/hebrish-maintainers",
-      "description": "Every skill for working on Hebrish: app reviews and releases, feature parity and planning, training-data contributions (vocabulary and sentences), website changes and brand assets, documentation and evaluation (white paper, benchmark pages, charts, running evals), and the Hugging Face organisation (audit, collections, model cards, access requests). Each skill states its access: many need only public repositories; project accounts are needed for Hugging Face, releases and the website repo.",
-      "version": "0.11.0",
-      "author": {
-        "name": "Daniel Rosehill",
-        "url": "https://hebrish.app"
-      },
-      "license": "MIT",
-      "category": "Development",
-      "tags": [
-        "hebrish",
-        "huggingface",
-        "maintainers"
       ]
     }
   ]

@@ -1,8 +1,9 @@
 # Writing skills for this marketplace
 
 This repository is **public**. Anyone can install these plugins, and anyone can read every
-line. Each skill has to work for a contributor who has a GitHub account, a clone of a public
-Hebrish repository and Claude Code, and nothing else. Created 2026-10-22.
+line. Each skill has to work for a user or contributor who has a GitHub account, a clone of a public
+Hebrish repository and Claude Code, and nothing else. Created 2026-10-22. Maintainer skills are
+not written here: since 2026-11-09 they live in the private `hebrish-private` plugin.
 
 ## Rules
 
